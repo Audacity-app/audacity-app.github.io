@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Fallback ICO (SVG-based) matching the SVG favicon artwork -->
+<svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 64 64" role="img" aria-label="Audacity for Windows favicon ICO">
+  <circle cx="32" cy="32" r="30" fill="#0B3A67"/>
+  <path d="M10 36 C 14 32, 18 24, 22 24 S 30 32, 34 36 S 42 40, 54 34" fill="none" stroke="#FF7F0F" stroke-width="4" stroke-linecap="round"/>
+</svg>

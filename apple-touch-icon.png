@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="180" height="180" viewBox="0 0 64 64" role="img" aria-label="Audacity for Windows Apple Touch Icon">
+  <rect width="64" height="64" fill="#0B3A67"/>
+  <path d="M6 38
+           C 10 34, 14 26, 18 26
+           S 26 34, 30 38
+           S 38 42, 58 34" fill="none" stroke="#FF7F0F" stroke-width="4" stroke-linecap="round"/>
+</svg>

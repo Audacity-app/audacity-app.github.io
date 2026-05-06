@@ -1,0 +1,367 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Audacity Plugins on Windows: VST/LV2/LADSPA & FFmpeg Setup</title>
+  <meta name="description" content="Install and manage Audacity plugins on Windows: VST3, LV2, LADSPA, Nyquist, and set up FFmpeg for extended import formats. Includes a safe 64‑bit download link." />
+  <link rel="canonical" href="https://audacity-app.github.io/audacity-plugins-windows.html" />
+  <meta name="robots" content="index, follow" />
+  <meta name="theme-color" content="#0B3A67" />
+  <meta property="og:type" content="article" />
+  <meta property="og:title" content="Audacity Plugins on Windows: VST/LV2/LADSPA & FFmpeg Setup" />
+  <meta property="og:description" content="Learn how to install VST3/LV2/LADSPA/Nyquist plugins and enable FFmpeg in Audacity on Windows. Safe 64‑bit download available." />
+  <meta property="og:url" content="https://audacity-app.github.io/audacity-plugins-windows.html" />
+  <meta property="og:image" content="https://audacity-app.github.io/og-image.png" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Audacity Plugins on Windows: VST/LV2/LADSPA & FFmpeg" />
+  <meta name="twitter:description" content="Add VST3, LV2, LADSPA, and Nyquist plugins. Enable FFmpeg to import more formats." />
+  <meta name="twitter:image" content="https://audacity-app.github.io/og-image.png" />
+  <link rel="icon" href="/favicon.ico" sizes="any" />
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+
+  <style>
+    :root{ --navy:#0B3A67; --deep:#123B82; --accent:#FF7F0F; --bg:#F7FAFC; --text:#0A0A0A; --muted:#44546A; --surface:#FFFFFF; --ring:#FF9B3D; --success:#1E8844; --warn:#B54708; }
+    html,body{height:100%}
+    body{margin:0; font-family:system-ui,-apple-system,Segoe UI,Roboto,Inter,Arial,sans-serif; color:var(--text); background:var(--bg); line-height:1.55; -webkit-font-smoothing:antialiased; -moz-osx-font-smoothing:grayscale;}
+    .container{max-width:1200px; margin-inline:auto; padding:0 16px;}
+    a{color:var(--deep); text-underline-offset:2px;} a:hover{color:var(--navy);} 
+    .btn{display:inline-flex; align-items:center; gap:.6rem; padding:.9rem 1.15rem; border-radius:10px; border:2px solid transparent; font-weight:700; text-decoration:none; cursor:pointer; transition:.2s;}
+    .btn-primary{background:var(--navy); color:#fff;} .btn-primary:hover{background:#092C50;}
+    .btn-outline{background:transparent; border-color:var(--navy); color:var(--navy);} .btn-outline:hover{background:#0b3a6710;}
+    .btn-contrast{background:var(--accent); color:#111;} .btn-contrast:hover{background:#FF8E2C;}
+    .btn:focus-visible{outline:3px solid var(--ring); outline-offset:2px;}
+
+    header{position:sticky; top:0; z-index:40; background:linear-gradient(0deg,#0B3A6700,#0B3A6715), var(--surface); border-bottom:1px solid #E6ECF2; backdrop-filter:saturate(120%) blur(2px);}    
+    .nav{display:flex; align-items:center; justify-content:space-between; padding:.75rem 0;}
+    .brand{display:flex; align-items:center; gap:.6rem; color:var(--navy); font-weight:800; letter-spacing:.2px;}
+    .brand .logo{width:28px; height:28px;}
+    .menu{display:flex; flex-wrap:wrap; gap:.6rem;}
+    .menu a{padding:.5rem .75rem; border-radius:8px; color:var(--navy); text-decoration:none; font-weight:600;}
+    .menu a:hover{background:#0b3a6710;}
+
+    .hero{background:linear-gradient(180deg,#0B3A67 0%,#123B82 50%,#0B3A67 100%); color:#fff;}
+    .hero .wrap{display:grid; grid-template-columns:1.1fr .9fr; gap:2rem; padding:2.6rem 0;}
+    .hero h1{font-size:clamp(1.6rem,2.2vw+1rem,2.6rem); margin:.5rem 0;}
+    .hero p.lead{color:#F3F8FF; font-size:1.05rem; max-width:64ch;}
+    .tag{display:inline-block; background:#FFFFFF22; color:#fff; border:1px solid #ffffff55; padding:.2rem .6rem; border-radius:999px; font-size:.85rem;}
+
+    .section{padding:2.2rem 0;}
+    .panel{background:var(--surface); border:1px solid #E6ECF2; border-radius:14px; padding:1rem;}
+    .grid{display:grid; gap:1rem;}
+    .grid.cols-2{grid-template-columns:repeat(2,1fr);} 
+    .grid.cols-3{grid-template-columns:repeat(3,1fr);} 
+    .howto-step{display:flex; gap:.8rem; align-items:flex-start;}
+    .howto-step svg{flex:0 0 auto; margin-top:.2rem;}
+    .kbd{font-family:ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", monospace; font-size:.9em; background:#0b3a6710; padding:.1rem .35rem; border-radius:6px; border:1px solid #0b3a6715;}
+
+    .faq details{border:1px solid #E6ECF2; background:var(--surface); border-radius:12px; padding:1rem;}
+    .faq details+details{margin-top:.8rem;}
+    .faq summary{cursor:pointer; font-weight:700; color:var(--navy);} 
+
+    footer{border-top:1px solid #E6ECF2; padding:1.25rem 0; color:var(--muted);} 
+
+    .cookie-banner{position:fixed; inset:auto 12px 12px 12px; z-index:50; background:var(--surface); border:1px solid #E6ECF2; border-radius:14px; padding:1rem; box-shadow:0 8px 30px #0b3a671f; display:none;}
+    .cookie-actions{display:flex; gap:.5rem; flex-wrap:wrap; margin-top:.75rem;}
+
+    .skip-link{position:absolute; left:-9999px;} .skip-link:focus{left:12px; top:12px; z-index:60; background:var(--accent); color:#111; padding:.5rem .75rem; border-radius:8px;}
+
+    @media (max-width: 960px){ .hero .wrap{grid-template-columns:1fr;} .grid.cols-2{grid-template-columns:1fr;} .grid.cols-3{grid-template-columns:1fr;} }
+  </style>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      {"@type": "ListItem", "position": 1, "name": "Home", "item": "https://audacity-app.github.io/"},
+      {"@type": "ListItem", "position": 2, "name": "Plugins", "item": "https://audacity-app.github.io/audacity-plugins-windows.html"}
+    ]
+  }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "SoftwareApplication",
+    "name": "Audacity for Windows",
+    "applicationCategory": "AudioEditor",
+    "operatingSystem": "Windows 10/11 (64-bit)",
+    "softwareVersion": "3.7.7",
+    "isAccessibleForFree": true,
+    "downloadUrl": "https://release-assets.githubusercontent.com/github-production-release-asset/32921736/8c8d674e-b2ae-4b6e-8166-4ba3ebeef838?sp=r&sv=2018-11-09&sr=b&spr=https&se=2026-05-03T18%3A26%3A08Z&rscd=attachment%3B+filename%3Daudacity-win-3.7.7-64bit.exe",
+    "featureList": [
+      "VST3/LV2/LADSPA/Nyquist plugin support",
+      "Real-time effects on supported plugins",
+      "FFmpeg import for extended formats"
+    ],
+    "offers": {"@type":"Offer", "price":"0", "priceCurrency":"USD", "availability":"https://schema.org/InStock"},
+    "publisher": {"@type":"Organization", "name":"Audacity App (Unofficial Guide)", "url":"https://audacity-app.github.io"}
+  }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "HowTo",
+    "name": "Enable FFmpeg import in Audacity (Windows)",
+    "description": "Install FFmpeg libraries and point Audacity to the folder so you can import AAC, AC3, AMR, and more on Windows.",
+    "totalTime": "PT5M",
+    "tool": [{"@type":"HowToTool","name":"Windows PC"},{"@type":"HowToTool","name":"Audacity (64-bit)"}],
+    "step": [
+      {"@type":"HowToStep","position":1,"name":"Install FFmpeg libraries","itemListElement":[{"@type":"HowToDirection","text":"Download and install a compatible FFmpeg build for Windows (64-bit)."}]},
+      {"@type":"HowToStep","position":2,"name":"Locate FFmpeg folder","itemListElement":[{"@type":"HowToDirection","text":"Find the folder containing avformat-*.dll, avcodec-*.dll, and avutil-*.dll."}]},
+      {"@type":"HowToStep","position":3,"name":"Point Audacity to FFmpeg","itemListElement":[{"@type":"HowToDirection","text":"In Audacity, open Preferences → Libraries → Locate and select the FFmpeg folder."}]},
+      {"@type":"HowToStep","position":4,"name":"Restart and verify","itemListElement":[{"@type":"HowToDirection","text":"Restart Audacity and test import of an AAC/AC3 file to confirm."}]}
+    ]
+  }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {"@type":"Question","name":"Where do I put VST3 plugins on Windows?","acceptedAnswer":{"@type":"Answer","text":"Common VST3 folders are C:\\Program Files\\Common Files\\VST3 and C:\\Program Files\\VSTPlugins. You can add custom folders in Audacity Preferences → Effects."}},
+      {"@type":"Question","name":"Does Audacity support VST2 and VST3?","acceptedAnswer":{"@type":"Answer","text":"Audacity supports VST3 and many VST2 effects. Some older VST may need bridging and may not support real-time control."}},
+      {"@type":"Question","name":"Why don’t my 32‑bit plugins show up?","acceptedAnswer":{"@type":"Answer","text":"Audacity for Windows is 64‑bit; 32‑bit plugins are not compatible. Use 64‑bit builds of your plugins."}},
+      {"@type":"Question","name":"How do I enable FFmpeg import?","acceptedAnswer":{"@type":"Answer","text":"Install a 64‑bit FFmpeg build, then in Audacity open Preferences → Libraries → Locate and select the FFmpeg folder containing avformat/avcodec/avutil DLLs."}}
+    ]
+  }
+  </script>
+</head>
+<body>
+<a class="skip-link" href="#main">Skip to content</a>
+
+<svg width="0" height="0" style="position:absolute;">
+  <symbol id="ic-download" viewBox="0 0 24 24" fill="currentColor"><path d="M12 3a1 1 0 0 1 1 1v9.586l2.293-2.293a1 1 0 1 1 1.414 1.414l-4 4a1 1 0 0 1-1.414 0l-4-4A1 1 0 0 1 8.707 11.293L11 13.586V4a1 1 0 0 1 1-1z"/><path d="M4 18a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-1a1 1 0 1 1 2 0v1a4 4 0 0 1-4 4H6a4 4 0 0 1-4-4v-1a1 1 0 1 1 2 0v1z"/></symbol>
+  <symbol id="ic-windows" viewBox="0 0 24 24" fill="currentColor"><path d="M2 4l9-1.5v9.5H2V4zm0 16l9 1.5V12H2v8zM13 2.3L22 1v11h-9V2.3zM22 13v10l-9-1.3V13h9z"/></symbol>
+  <symbol id="ic-info" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2a10 10 0 1 0 0 20 10 10 0 0 0 0-20zm1 15h-2v-6h2v6zm0-8h-2V7h2v2z"/></symbol>
+  <symbol id="ic-check" viewBox="0 0 24 24" fill="currentColor"><path d="M20.285 6.708a1 1 0 0 1 .007 1.414l-9.2 9.2a1 1 0 0 1-1.414 0l-5.2-5.2a1 1 0 0 1 1.414-1.414l4.493 4.493 8.493-8.493a1 1 0 0 1 1.407 0z"/></symbol>
+  <symbol id="ic-close" viewBox="0 0 24 24" fill="currentColor"><path d="M18.3 5.71a1 1 0 0 1 0 1.41L13.41 12l4.89 4.88a1 1 0 1 1-1.42 1.42L12 13.41l-4.88 4.89a1 1 0 0 1-1.42-1.42L10.59 12 5.7 7.12A1 1 0 0 1 7.12 5.7L12 10.59l4.88-4.89a1 1 0 0 1 1.42 0z"/></symbol>
+</svg>
+
+<header>
+  <div class="container nav" role="navigation" aria-label="Main">
+    <a class="brand" href="/" aria-label="Home">
+      <svg class="logo" viewBox="0 0 48 48" aria-hidden="true"><circle cx="24" cy="24" r="22" fill="#0B3A67"/><path d="M8 28c6-2 10-8 16-8s10 6 16 8" stroke="#FF7F0F" stroke-width="3" fill="none" stroke-linecap="round"/></svg>
+      <span>Audacity for Windows</span>
+    </a>
+    <nav class="menu" aria-label="Site">
+      <a href="/audacity-windows-features.html">Features</a>
+      <a href="/install-audacity-windows.html">Install</a>
+      <a href="/getting-started-audacity-windows.html">Getting Started</a>
+      <a href="/vinyl-to-mp3-windows-audacity.html">Vinyl to MP3</a>
+      <a href="/audacity-plugins-windows.html" aria-current="page">Plugins</a>
+      <a href="/audacity-windows-troubleshooting.html">Troubleshooting</a>
+    </nav>
+  </div>
+</header>
+
+<main id="main">
+  <section class="hero">
+    <div class="container wrap">
+      <div>
+        <span class="tag">Windows 10/11 • 64‑bit</span>
+        <h1>Plugins: VST3, LV2, LADSPA & FFmpeg</h1>
+        <p class="lead">Add effects and extended format support to Audacity on Windows. Learn where to install VST3/LV2/LADSPA/Nyquist plugins and how to enable FFmpeg.</p>
+        <div style="margin-top:1rem; display:flex; gap:.75rem; flex-wrap:wrap;">
+          <a class="btn btn-contrast js-download" href="#" rel="noopener"><svg width="18" height="18" aria-hidden="true"><use href="#ic-download"/></svg> Download 64‑bit for Windows</a>
+          <a class="btn btn-outline" href="#ffmpeg"><svg width="18" height="18" aria-hidden="true"><use href="#ic-info"/></svg> FFmpeg setup</a>
+        </div>
+      </div>
+      <div>
+        <div class="panel" aria-label="At a glance">
+          <h2 style="margin:0 0 .5rem; color:#0B3A67">At a glance</h2>
+          <ul style="margin:0; padding-left:1.1rem;">
+            <li>Use 64‑bit plugins with 64‑bit Audacity.</li>
+            <li>VST3: C:\Program Files\Common Files\VST3 (default scan path).</li>
+            <li>Enable/scan in Preferences → Effects.</li>
+            <li>Install FFmpeg to import AAC, AC3, AMR and more.</li>
+          </ul>
+          <div style="margin-top:.9rem; display:flex; gap:.6rem; flex-wrap:wrap;">
+            <a class="btn btn-primary js-download" href="#"><svg width="18" height="18" aria-hidden="true"><use href="#ic-download"/></svg> Get the installer</a>
+            <a class="btn btn-outline" href="/audacity-windows-troubleshooting.html">Troubleshoot plugins</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section container">
+    <div class="grid cols-3">
+      <div class="panel howto-step">
+        <svg width="22" height="22" aria-hidden="true"><use href="#ic-windows"/></svg>
+        <div>
+          <h3 style="margin:.1rem 0; color:var(--navy)">VST3 on Windows</h3>
+          <p style="margin:0; color:var(--muted)">Place plugins in <span class="kbd">C:\\Program Files\\Common Files\\VST3</span> or <span class="kbd">C:\\Program Files\\VSTPlugins</span>. In Audacity, open <span class="kbd">Preferences → Effects</span> to rescan and enable.</p>
+        </div>
+      </div>
+      <div class="panel howto-step">
+        <svg width="22" height="22" aria-hidden="true"><use href="#ic-check"/></svg>
+        <div>
+          <h3 style="margin:.1rem 0; color:var(--navy)">LV2 & LADSPA</h3>
+          <p style="margin:0; color:var(--muted)">Install to your chosen plugin folder and add its path in <span class="kbd">Preferences → Effects</span>. Then rescan and enable the plugins.</p>
+        </div>
+      </div>
+      <div class="panel howto-step">
+        <svg width="22" height="22" aria-hidden="true"><use href="#ic-info"/></svg>
+        <div>
+          <h3 style="margin:.1rem 0; color:var(--navy)">Nyquist</h3>
+          <p style="margin:0; color:var(--muted)">Nyquist scripts (.ny) can be placed in Audacity’s scripts/plugins folder. Enable them from the Effects list after scanning.</p>
+        </div>
+      </div>
+      <div class="panel howto-step" id="ffmpeg">
+        <svg width="22" height="22" aria-hidden="true"><use href="#ic-check"/></svg>
+        <div>
+          <h3 style="margin:.1rem 0; color:var(--navy)">FFmpeg setup</h3>
+          <p style="margin:0; color:var(--muted)">Install a 64‑bit FFmpeg build, then in Audacity go to <span class="kbd">Preferences → Libraries</span>, click <span class="kbd">Locate</span>, and point to the folder with <span class="kbd">avformat</span>/<span class="kbd">avcodec</span>/<span class="kbd">avutil</span> DLLs.</p>
+        </div>
+      </div>
+      <div class="panel howto-step">
+        <svg width="22" height="22" aria-hidden="true"><use href="#ic-windows"/></svg>
+        <div>
+          <h3 style="margin:.1rem 0; color:var(--navy)">Real‑time effects</h3>
+          <p style="margin:0; color:var(--muted)">Many VST3 and LV2 effects support real‑time adjustment. Use the Effects Rack to tweak parameters while playing audio.</p>
+        </div>
+      </div>
+      <div class="panel howto-step">
+        <svg width="22" height="22" aria-hidden="true"><use href="#ic-info"/></svg>
+        <div>
+          <h3 style="margin:.1rem 0; color:var(--navy)">64‑bit only</h3>
+          <p style="margin:0; color:var(--muted)">Use 64‑bit plugin builds. 32‑bit plugins are not compatible with 64‑bit Audacity.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section container">
+    <div class="grid cols-2">
+      <div class="panel">
+        <h2>Troubleshooting plugins</h2>
+        <ul style="margin:0 0 0 1rem;">
+          <li>Plugin not listed: rescan in Preferences → Effects; verify 64‑bit build.</li>
+          <li>Crashes on load: remove the plugin, restart Audacity, check for updates.</li>
+          <li>Missing UI: some VST may show generic controls; try a different version.</li>
+          <li>No audio: bypass effects to confirm; check effect order in the rack.</li>
+        </ul>
+      </div>
+      <div class="panel">
+        <h2>Where to go next</h2>
+        <ul style="margin:0 0 0 1rem;">
+          <li><a href="/getting-started-audacity-windows.html">Getting Started: record, edit, export</a></li>
+          <li><a href="/audacity-windows-features.html">Features & compatibility</a></li>
+          <li><a href="/audacity-windows-troubleshooting.html">Device and recording fixes</a></li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section class="section container" aria-label="Call to action">
+    <div class="panel" style="display:flex; align-items:center; justify-content:space-between; gap:1rem; flex-wrap:wrap;">
+      <div>
+        <h2 style="margin:.2rem 0;">Ready to add effects?</h2>
+        <p style="margin:.2rem 0; color:var(--muted)">Download the free 64‑bit Windows installer and start exploring plugins.</p>
+      </div>
+      <a class="btn btn-contrast js-download" href="#"><svg width="18" height="18" aria-hidden="true"><use href="#ic-download"/></svg> Download for Windows</a>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="container" style="display:flex; align-items:flex-start; justify-content:space-between; gap:1rem; flex-wrap:wrap;">
+    <small>© <span id="year"></span> Audacity App (Unofficial Guide). This site is not affiliated with the Audacity Team. “Audacity” is a trademark of its respective owner.</small>
+    <small id="last-mod">Last updated: —</small>
+  </div>
+</footer>
+
+<div id="cookie-banner" class="cookie-banner" role="dialog" aria-labelledby="cookie-title" aria-describedby="cookie-desc" aria-live="polite">
+  <strong id="cookie-title" style="color:var(--navy)">We use cookies for analytics.</strong>
+  <p id="cookie-desc" style="margin:.35rem 0 0; color:var(--muted)">We use Google Analytics 4 to understand how our site is used. You can accept or decline. You can change your choice later by clearing site data.</p>
+  <div class="cookie-actions">
+    <button id="cookie-accept" class="btn btn-primary">Accept</button>
+    <button id="cookie-decline" class="btn btn-outline">Decline</button>
+    <button id="cookie-close" class="btn" aria-label="Close cookie banner" title="Close" style="margin-left:auto"><svg width="18" height="18" aria-hidden="true"><use href="#ic-close"/></svg> Close</button>
+  </div>
+</div>
+
+<script>
+  // --- Config ---
+  const GA_MEASUREMENT_ID = 'G-1J7BVS47GG';
+  const FILE_URL = 'https://release-assets.githubusercontent.com/github-production-release-asset/32921736/8c8d674e-b2ae-4b6e-8166-4ba3ebeef838?sp=r&sv=2018-11-09&sr=b&spr=https&se=2026-05-03T18%3A26%3A08Z&rscd=attachment%3B+filename%3Daudacity-win-3.7.7-64bit.exe';
+  const FILE_LABEL = 'audacity-win-3.7.7-64bit.exe';
+
+  // Attach the direct download link to all .js-download buttons
+  document.addEventListener('DOMContentLoaded', () => {
+    document.querySelectorAll('.js-download').forEach(a => a.setAttribute('href', FILE_URL));
+  });
+
+  // Last modified + year
+  (function(){
+    const lm = new Date(document.lastModified);
+    const fmtr = new Intl.DateTimeFormat(undefined, {year:'numeric', month:'short', day:'2-digit', hour:'2-digit', minute:'2-digit'});
+    document.getElementById('last-mod').textContent = 'Last updated: ' + fmtr.format(lm);
+    document.getElementById('year').textContent = new Date().getFullYear();
+  })();
+
+  // Cookie consent logic (deferred GA loading)
+  const banner = document.getElementById('cookie-banner');
+  const acceptBtn = document.getElementById('cookie-accept');
+  const declineBtn = document.getElementById('cookie-decline');
+  const closeBtn = document.getElementById('cookie-close');
+
+  function showBanner(){ banner.style.display = 'block'; }
+  function hideBanner(){ banner.style.display = 'none'; }
+
+  function loadGA(){
+    if (window.__gaLoaded) return;
+    window.__gaLoaded = true;
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){ dataLayer.push(arguments); }
+    window.gtag = window.gtag || gtag;
+    gtag('js', new Date());
+    gtag('config', GA_MEASUREMENT_ID, { anonymize_ip: true });
+
+    const s = document.createElement('script');
+    s.async = true;
+    s.src = 'https://www.googletagmanager.com/gtag/js?id=' + encodeURIComponent(GA_MEASUREMENT_ID);
+    document.head.appendChild(s);
+  }
+
+  (function(){
+    const saved = localStorage.getItem('cookie_consent');
+    if (saved === 'granted') {
+      loadGA();
+    } else if (saved === 'denied') {
+      // GA stays disabled
+    } else {
+      showBanner();
+    }
+  })();
+
+  acceptBtn.addEventListener('click', () => { localStorage.setItem('cookie_consent','granted'); loadGA(); hideBanner(); });
+  declineBtn.addEventListener('click', () => { localStorage.setItem('cookie_consent','denied'); hideBanner(); });
+  closeBtn.addEventListener('click', hideBanner);
+
+  // Download click tracking
+  function trackDownload(url){
+    try {
+      if (window.gtag) {
+        window.gtag('event', 'file_download', {
+          event_category: 'downloads',
+          event_label: FILE_LABEL,
+          file_url: url
+        });
+      }
+    } catch (e) { /* noop */ }
+  }
+  document.addEventListener('click', (e) => {
+    const a = e.target.closest && e.target.closest('a.js-download');
+    if (a) { trackDownload(a.href); }
+  });
+  document.addEventListener('keydown', (e) => {
+    if ((e.key === 'Enter' || e.key === ' ') && document.activeElement && document.activeElement.matches('a.js-download')) {
+      trackDownload(document.activeElement.href);
+    }
+  });
+</script>
+</body>
+</html>

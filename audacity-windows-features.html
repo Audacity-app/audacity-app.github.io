@@ -1,0 +1,373 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Audacity for Windows: Features, System Requirements & Compatibility</title>
+  <meta name="description" content="Explore Audacity for Windows features, supported plugins and formats, and system requirements. Safe 64‑bit download and quick answers." />
+  <link rel="canonical" href="https://audacity-app.github.io/audacity-windows-features.html" />
+  <meta name="robots" content="index, follow" />
+  <meta name="theme-color" content="#0B3A67" />
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="Audacity for Windows: Features & Compatibility" />
+  <meta property="og:description" content="Explore features, plugins, formats, and system requirements. Includes a safe 64‑bit download link." />
+  <meta property="og:url" content="https://audacity-app.github.io/audacity-windows-features.html" />
+  <meta property="og:image" content="https://audacity-app.github.io/og-image.png" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Audacity for Windows: Features & Compatibility" />
+  <meta name="twitter:description" content="Explore features and requirements for Audacity on Windows. Safe 64‑bit download available." />
+  <meta name="twitter:image" content="https://audacity-app.github.io/og-image.png" />
+  <link rel="icon" href="/favicon.ico" sizes="any" />
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+
+  <style>
+    :root{
+      --navy:#0B3A67; --deep:#123B82; --accent:#FF7F0F; --bg:#F7FAFC; --text:#0A0A0A; --muted:#44546A; --surface:#FFFFFF; --ring:#FF9B3D; --success:#1E8844; --warn:#B54708;
+    }
+    html,body{height:100%}
+    body{margin:0; font-family:system-ui,-apple-system,Segoe UI,Roboto,Inter,Arial,sans-serif; color:var(--text); background:var(--bg); line-height:1.55; -webkit-font-smoothing:antialiased; -moz-osx-font-smoothing:grayscale;}
+    .container{max-width:1200px; margin-inline:auto; padding:0 16px;}
+    a{color:var(--deep); text-underline-offset:2px;} a:hover{color:var(--navy);} 
+    .btn{display:inline-flex; align-items:center; gap:.6rem; padding:.9rem 1.15rem; border-radius:10px; border:2px solid transparent; font-weight:700; text-decoration:none; cursor:pointer; transition:.2s;}
+    .btn-primary{background:var(--navy); color:#fff;} .btn-primary:hover{background:#092C50;}
+    .btn-outline{background:transparent; border-color:var(--navy); color:var(--navy);} .btn-outline:hover{background:#0b3a6710;}
+    .btn-contrast{background:var(--accent); color:#111;} .btn-contrast:hover{background:#FF8E2C;}
+    .btn:focus-visible{outline:3px solid var(--ring); outline-offset:2px;}
+
+    header{position:sticky; top:0; z-index:40; background:linear-gradient(0deg,#0B3A6700,#0B3A6715), var(--surface); border-bottom:1px solid #E6ECF2; backdrop-filter:saturate(120%) blur(2px);}    
+    .nav{display:flex; align-items:center; justify-content:space-between; padding:.75rem 0;}
+    .brand{display:flex; align-items:center; gap:.6rem; color:var(--navy); font-weight:800; letter-spacing:.2px;}
+    .brand .logo{width:28px; height:28px;}
+    .menu{display:flex; flex-wrap:wrap; gap:.6rem;}
+    .menu a{padding:.5rem .75rem; border-radius:8px; color:var(--navy); text-decoration:none; font-weight:600;}
+    .menu a:hover{background:#0b3a6710;}
+
+    .hero{background:linear-gradient(180deg,#0B3A67 0%,#123B82 50%,#0B3A67 100%); color:#fff;}
+    .hero .wrap{display:grid; grid-template-columns:1.1fr .9fr; gap:2rem; padding:2.6rem 0;}
+    .hero h1{font-size:clamp(1.6rem,2.2vw+1rem,2.6rem); margin:.5rem 0;}
+    .hero p.lead{color:#F3F8FF; font-size:1.05rem; max-width:64ch;}
+    .tag{display:inline-block; background:#FFFFFF22; color:#fff; border:1px solid #ffffff55; padding:.2rem .6rem; border-radius:999px; font-size:.85rem;}
+
+    .section{padding:2.2rem 0;}
+    .panel{background:var(--surface); border:1px solid #E6ECF2; border-radius:14px; padding:1rem;}
+    .grid{display:grid; gap:1rem;}
+    .grid.cols-3{grid-template-columns:repeat(3,1fr);} 
+    .grid.cols-2{grid-template-columns:repeat(2,1fr);} 
+    .feature{display:flex; gap:.8rem; align-items:flex-start;}
+    .feature svg{flex:0 0 auto; margin-top:.15rem;}
+    .kbd{font-family:ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", monospace; font-size:.9em; background:#0b3a6710; padding:.1rem .35rem; border-radius:6px; border:1px solid #0b3a6715;}
+
+    .faq details{border:1px solid #E6ECF2; background:var(--surface); border-radius:12px; padding:1rem;}
+    .faq details+details{margin-top:.8rem;}
+    .faq summary{cursor:pointer; font-weight:700; color:var(--navy);} 
+
+    footer{border-top:1px solid #E6ECF2; padding:1.25rem 0; color:var(--muted);} 
+
+    .cookie-banner{position:fixed; inset:auto 12px 12px 12px; z-index:50; background:var(--surface); border:1px solid #E6ECF2; border-radius:14px; padding:1rem; box-shadow:0 8px 30px #0b3a671f; display:none;}
+    .cookie-actions{display:flex; gap:.5rem; flex-wrap:wrap; margin-top:.75rem;}
+
+    .skip-link{position:absolute; left:-9999px;} .skip-link:focus{left:12px; top:12px; z-index:60; background:var(--accent); color:#111; padding:.5rem .75rem; border-radius:8px;}
+
+    @media (max-width: 960px){
+      .hero .wrap{grid-template-columns:1fr;}
+      .grid.cols-3{grid-template-columns:1fr;}
+      .grid.cols-2{grid-template-columns:1fr;}
+    }
+  </style>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      {"@type": "ListItem", "position": 1, "name": "Home", "item": "https://audacity-app.github.io/"},
+      {"@type": "ListItem", "position": 2, "name": "Features", "item": "https://audacity-app.github.io/audacity-windows-features.html"}
+    ]
+  }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "SoftwareApplication",
+    "name": "Audacity for Windows",
+    "applicationCategory": "AudioEditor",
+    "operatingSystem": "Windows 10/11 (64-bit)",
+    "softwareVersion": "3.7.7",
+    "isAccessibleForFree": true,
+    "downloadUrl": "https://release-assets.githubusercontent.com/github-production-release-asset/32921736/8c8d674e-b2ae-4b6e-8166-4ba3ebeef838?sp=r&sv=2018-11-09&sr=b&spr=https&se=2026-05-03T18%3A26%3A08Z&rscd=attachment%3B+filename%3Daudacity-win-3.7.7-64bit.exe",
+    "featureList": [
+      "Record via MME / Windows DirectSound / WASAPI loopback",
+      "Multi-track editing and spectral view",
+      "VST3/LV2/LADSPA/Nyquist effects",
+      "FFmpeg import for extended formats",
+      "Export MP3, WAV, FLAC"
+    ],
+    "offers": {"@type":"Offer", "price":"0", "priceCurrency":"USD", "availability":"https://schema.org/InStock"},
+    "publisher": {"@type":"Organization", "name":"Audacity App (Unofficial Guide)", "url":"https://audacity-app.github.io"}
+  }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {"@type":"Question","name":"Does Audacity support WASAPI on Windows?","acceptedAnswer":{"@type":"Answer","text":"Yes. Choose WASAPI as the host to record system audio (loopback) or input devices with low latency."}},
+      {"@type":"Question","name":"Which plugins work on Windows?","acceptedAnswer":{"@type":"Answer","text":"VST3, LV2, LADSPA, and Nyquist are supported. Some VST2/3 effects may require bridging; ASIO is not bundled due to licensing."}},
+      {"@type":"Question","name":"Which formats can I import/export?","acceptedAnswer":{"@type":"Answer","text":"Core formats include WAV, AIFF, FLAC, and MP3 export. With FFmpeg installed you can import AAC, AC3, AMR and more."}}
+    ]
+  }
+  </script>
+</head>
+<body>
+<a class="skip-link" href="#main">Skip to content</a>
+
+<svg width="0" height="0" style="position:absolute;">
+  <symbol id="ic-download" viewBox="0 0 24 24" fill="currentColor"><path d="M12 3a1 1 0 0 1 1 1v9.586l2.293-2.293a1 1 0 1 1 1.414 1.414l-4 4a1 1 0 0 1-1.414 0l-4-4A1 1 0 0 1 8.707 11.293L11 13.586V4a1 1 0 0 1 1-1z"/><path d="M4 18a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-1a1 1 0 1 1 2 0v1a4 4 0 0 1-4 4H6a4 4 0 0 1-4-4v-1a1 1 0 1 1 2 0v1z"/></symbol>
+  <symbol id="ic-windows" viewBox="0 0 24 24" fill="currentColor"><path d="M2 4l9-1.5v9.5H2V4zm0 16l9 1.5V12H2v8zM13 2.3L22 1v11h-9V2.3zM22 13v10l-9-1.3V13h9z"/></symbol>
+  <symbol id="ic-info" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2a10 10 0 1 0 0 20 10 10 0 0 0 0-20zm1 15h-2v-6h2v6zm0-8h-2V7h2v2z"/></symbol>
+  <symbol id="ic-check" viewBox="0 0 24 24" fill="currentColor"><path d="M20.285 6.708a1 1 0 0 1 .007 1.414l-9.2 9.2a1 1 0 0 1-1.414 0l-5.2-5.2a1 1 0 0 1 1.414-1.414l4.493 4.493 8.493-8.493a1 1 0 0 1 1.407 0z"/></symbol>
+  <symbol id="ic-close" viewBox="0 0 24 24" fill="currentColor"><path d="M18.3 5.71a1 1 0 0 1 0 1.41L13.41 12l4.89 4.88a1 1 0 1 1-1.42 1.42L12 13.41l-4.88 4.89a1 1 0 0 1-1.42-1.42L10.59 12 5.7 7.12A1 1 0 0 1 7.12 5.7L12 10.59l4.88-4.89a1 1 0 0 1 1.42 0z"/></symbol>
+</svg>
+
+<header>
+  <div class="container nav" role="navigation" aria-label="Main">
+    <a class="brand" href="/" aria-label="Home">
+      <svg class="logo" viewBox="0 0 48 48" aria-hidden="true"><circle cx="24" cy="24" r="22" fill="#0B3A67"/><path d="M8 28c6-2 10-8 16-8s10 6 16 8" stroke="#FF7F0F" stroke-width="3" fill="none" stroke-linecap="round"/></svg>
+      <span>Audacity for Windows</span>
+    </a>
+    <nav class="menu" aria-label="Site">
+      <a href="/audacity-windows-features.html" aria-current="page">Features</a>
+      <a href="/install-audacity-windows.html">Install</a>
+      <a href="/getting-started-audacity-windows.html">Getting Started</a>
+      <a href="/vinyl-to-mp3-windows-audacity.html">Vinyl to MP3</a>
+      <a href="/audacity-plugins-windows.html">Plugins</a>
+      <a href="/audacity-windows-troubleshooting.html">Troubleshooting</a>
+    </nav>
+  </div>
+</header>
+
+<main id="main">
+  <section class="hero">
+    <div class="container wrap">
+      <div>
+        <span class="tag">Windows 10/11 • 64‑bit</span>
+        <h1>Audacity for Windows: Features & Compatibility</h1>
+        <p class="lead">A quick overview of what you can do with Audacity on Windows — from WASAPI loopback recording to VST3/LV2 effects — plus system requirements and supported formats.</p>
+        <div style="margin-top:1rem; display:flex; gap:.75rem; flex-wrap:wrap;">
+          <a class="btn btn-contrast js-download" href="#"><svg width="18" height="18" aria-hidden="true"><use href="#ic-download"/></svg> Download 64‑bit for Windows</a>
+          <a class="btn btn-outline" href="/getting-started-audacity-windows.html"><svg width="18" height="18" aria-hidden="true"><use href="#ic-info"/></svg> Getting started</a>
+        </div>
+      </div>
+      <div>
+        <div class="panel">
+          <h2 style="margin:0 0 .5rem; color:#fff; font-size:1px; height:0; overflow:hidden">At a glance</h2>
+          <ul style="margin:0; padding-left:1.1rem; color:#0A0A0A; list-style:disc;">
+            <li><strong>Record:</strong> MME, DirectSound, and <span class="kbd">WASAPI</span> loopback.</li>
+            <li><strong>Edit:</strong> Multi‑track, spectral view, fades, noise removal, normalize.</li>
+            <li><strong>Effects:</strong> VST3, LV2, LADSPA, Nyquist; real‑time on supported effects.</li>
+            <li><strong>Formats:</strong> WAV, FLAC, AIFF, MP3 export; import more via FFmpeg.</li>
+            <li><strong>Free & 64‑bit:</strong> Optimized for modern Windows 10/11 PCs.</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section container">
+    <h2 style="color:var(--navy); margin-top:0;">Key features</h2>
+    <div class="grid cols-3">
+      <div class="panel feature">
+        <svg width="22" height="22" aria-hidden="true"><use href="#ic-windows"/></svg>
+        <div>
+          <h3 style="margin:.1rem 0; color:var(--navy)">Recording on Windows</h3>
+          <p style="margin:0; color:var(--muted)">Choose <span class="kbd">WASAPI</span> to capture system audio (loopback) or use MME/DirectSound for microphones and line‑in.</p>
+        </div>
+      </div>
+      <div class="panel feature">
+        <svg width="22" height="22" aria-hidden="true"><use href="#ic-check"/></svg>
+        <div>
+          <h3 style="margin:.1rem 0; color:var(--navy)">Editing toolkit</h3>
+          <p style="margin:0; color:var(--muted)">Multi‑track timeline, spectral view, precise selection tools, fades, silence, noise reduction, and clip repair.</p>
+        </div>
+      </div>
+      <div class="panel feature">
+        <svg width="22" height="22" aria-hidden="true"><use href="#ic-info"/></svg>
+        <div>
+          <h3 style="margin:.1rem 0; color:var(--navy)">Effects & plugins</h3>
+          <p style="margin:0; color:var(--muted)">Supports VST3, LV2, LADSPA, and Nyquist. Many effects run in real time; expand your toolbox with third‑party plugins.</p>
+        </div>
+      </div>
+      <div class="panel feature">
+        <svg width="22" height="22" aria-hidden="true"><use href="#ic-check"/></svg>
+        <div>
+          <h3 style="margin:.1rem 0; color:var(--navy)">Format support</h3>
+          <p style="margin:0; color:var(--muted)">Work with WAV, AIFF, FLAC, OGG; export MP3. Add FFmpeg to import AAC, AC3, AMR and more.</p>
+        </div>
+      </div>
+      <div class="panel feature">
+        <svg width="22" height="22" aria-hidden="true"><use href="#ic-check"/></svg>
+        <div>
+          <h3 style="margin:.1rem 0; color:var(--navy)">64‑bit performance</h3>
+          <p style="margin:0; color:var(--muted)">Modern 64‑bit build for Windows 10/11, improved stability on large sessions and long recordings.</p>
+        </div>
+      </div>
+      <div class="panel feature">
+        <svg width="22" height="22" aria-hidden="true"><use href="#ic-info"/></svg>
+        <div>
+          <h3 style="margin:.1rem 0; color:var(--navy)">Accessibility</h3>
+          <p style="margin:0; color:var(--muted)">Keyboard shortcuts, zoom controls, and high‑contrast UI help you work faster and more comfortably.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section container">
+    <div class="grid cols-2">
+      <div class="panel">
+        <h2>System requirements</h2>
+        <ul style="margin:0 0 0 1rem;">
+          <li>Windows 10 or Windows 11 (64‑bit)</li>
+          <li>4 GB RAM minimum (8 GB recommended)</li>
+          <li>~200 MB for installation; extra space for projects</li>
+          <li>Optional: FFmpeg library for extended import formats</li>
+        </ul>
+      </div>
+      <div class="panel">
+        <h2>Plugin support on Windows</h2>
+        <ul style="margin:0 0 0 1rem;">
+          <li><strong>VST3</strong> effects and instruments</li>
+          <li><strong>LV2</strong>, <strong>LADSPA</strong>, and <strong>Nyquist</strong> plugins</li>
+          <li>Third‑party VST folders can be scanned from Preferences → Effects</li>
+          <li>ASIO builds are not bundled due to licensing constraints</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section class="section container" aria-label="Call to action">
+    <div class="panel" style="display:flex; align-items:center; justify-content:space-between; gap:1rem; flex-wrap:wrap;">
+      <div>
+        <h2 style="margin:.2rem 0;">Ready to try Audacity?</h2>
+        <p style="margin:.2rem 0; color:var(--muted)">Get the free 64‑bit Windows installer and start recording today.</p>
+      </div>
+      <a class="btn btn-contrast js-download" href="#"><svg width="18" height="18" aria-hidden="true"><use href="#ic-download"/></svg> Download for Windows</a>
+    </div>
+  </section>
+
+  <section class="section container faq" aria-label="Frequently asked questions">
+    <h2>Quick answers</h2>
+    <details>
+      <summary>Does Audacity support WASAPI on Windows?</summary>
+      <p>Yes. Select <strong>WASAPI</strong> as the host to record system audio (loopback) or low‑latency input from supported devices.</p>
+    </details>
+    <details>
+      <summary>Which plugins work on Windows?</summary>
+      <p>VST3, LV2, LADSPA, and Nyquist plugins are supported. Some older VST may require bridging; ASIO builds are not bundled due to licensing.</p>
+    </details>
+    <details>
+      <summary>What formats can I import or export?</summary>
+      <p>WAV, AIFF, FLAC, OGG are supported natively, and you can export MP3. Install FFmpeg to import AAC, AC3, AMR and more.</p>
+    </details>
+  </section>
+</main>
+
+<footer>
+  <div class="container" style="display:flex; align-items:flex-start; justify-content:space-between; gap:1rem; flex-wrap:wrap;">
+    <small>© <span id="year"></span> Audacity App (Unofficial Guide). This site is not affiliated with the Audacity Team. “Audacity” is a trademark of its respective owner.</small>
+    <small id="last-mod">Last updated: —</small>
+  </div>
+</footer>
+
+<div id="cookie-banner" class="cookie-banner" role="dialog" aria-labelledby="cookie-title" aria-describedby="cookie-desc" aria-live="polite">
+  <strong id="cookie-title" style="color:var(--navy)">We use cookies for analytics.</strong>
+  <p id="cookie-desc" style="margin:.35rem 0 0; color:var(--muted)">We use Google Analytics 4 to understand how our site is used. You can accept or decline. You can change your choice later by clearing site data.</p>
+  <div class="cookie-actions">
+    <button id="cookie-accept" class="btn btn-primary">Accept</button>
+    <button id="cookie-decline" class="btn btn-outline">Decline</button>
+    <button id="cookie-close" class="btn" aria-label="Close cookie banner" title="Close" style="margin-left:auto"><svg width="18" height="18" aria-hidden="true"><use href="#ic-close"/></svg> Close</button>
+  </div>
+</div>
+
+<script>
+  // --- Config ---
+  const GA_MEASUREMENT_ID = 'G-1J7BVS47GG';
+  const FILE_URL = 'https://release-assets.githubusercontent.com/github-production-release-asset/32921736/8c8d674e-b2ae-4b6e-8166-4ba3ebeef838?sp=r&sv=2018-11-09&sr=b&spr=https&se=2026-05-03T18%3A26%3A08Z&rscd=attachment%3B+filename%3Daudacity-win-3.7.7-64bit.exe';
+  const FILE_LABEL = 'audacity-win-3.7.7-64bit.exe';
+
+  // Attach the real direct download link to all .js-download buttons
+  document.addEventListener('DOMContentLoaded', () => {
+    document.querySelectorAll('.js-download').forEach(a => a.setAttribute('href', FILE_URL));
+  });
+
+  // Last modified + year
+  (function(){
+    const lm = new Date(document.lastModified);
+    const fmtr = new Intl.DateTimeFormat(undefined, {year:'numeric', month:'short', day:'2-digit', hour:'2-digit', minute:'2-digit'});
+    document.getElementById('last-mod').textContent = 'Last updated: ' + fmtr.format(lm);
+    document.getElementById('year').textContent = new Date().getFullYear();
+  })();
+
+  // Cookie consent logic (deferred GA loading)
+  const banner = document.getElementById('cookie-banner');
+  const acceptBtn = document.getElementById('cookie-accept');
+  const declineBtn = document.getElementById('cookie-decline');
+  const closeBtn = document.getElementById('cookie-close');
+
+  function showBanner(){ banner.style.display = 'block'; }
+  function hideBanner(){ banner.style.display = 'none'; }
+
+  function loadGA(){
+    if (window.__gaLoaded) return;
+    window.__gaLoaded = true;
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){ dataLayer.push(arguments); }
+    window.gtag = window.gtag || gtag;
+    gtag('js', new Date());
+    gtag('config', GA_MEASUREMENT_ID, { anonymize_ip: true });
+
+    const s = document.createElement('script');
+    s.async = true;
+    s.src = 'https://www.googletagmanager.com/gtag/js?id=' + encodeURIComponent(GA_MEASUREMENT_ID);
+    document.head.appendChild(s);
+  }
+
+  (function(){
+    const saved = localStorage.getItem('cookie_consent');
+    if (saved === 'granted') {
+      loadGA();
+    } else if (saved === 'denied') {
+      // GA stays disabled
+    } else {
+      showBanner();
+    }
+  })();
+
+  acceptBtn.addEventListener('click', () => { localStorage.setItem('cookie_consent','granted'); loadGA(); hideBanner(); });
+  declineBtn.addEventListener('click', () => { localStorage.setItem('cookie_consent','denied'); hideBanner(); });
+  closeBtn.addEventListener('click', hideBanner);
+
+  // Download click tracking
+  function trackDownload(url){
+    try {
+      if (window.gtag) {
+        window.gtag('event', 'file_download', {
+          event_category: 'downloads',
+          event_label: FILE_LABEL,
+          file_url: url
+        });
+      }
+    } catch (e) { /* noop */ }
+  }
+  document.addEventListener('click', (e) => {
+    const a = e.target.closest && e.target.closest('a.js-download');
+    if (a) { trackDownload(a.href); }
+  });
+  document.addEventListener('keydown', (e) => {
+    if ((e.key === 'Enter' || e.key === ' ') && document.activeElement && document.activeElement.matches('a.js-download')) {
+      trackDownload(document.activeElement.href);
+    }
+  });
+</script>
+</body>
+</html>
