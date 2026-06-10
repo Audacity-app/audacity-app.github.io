@@ -1,386 +1,46 @@
-<!doctype html>
-<html lang="en">
-<head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Getting Started with Audacity on Windows: Record, Edit, Export</title>
-  <meta name="description" content="Learn how to set up Audacity on Windows, record with WASAPI or microphone, edit tracks, and export to MP3/WAV/FLAC. Safe 64‑bit download included." />
-  <link rel="canonical" href="https://audacity-app.github.io/getting-started-audacity-windows.html" />
-  <meta name="robots" content="index, follow" />
-  <meta name="theme-color" content="#0B3A67" />
-  <meta property="og:type" content="article" />
-  <meta property="og:title" content="Getting Started with Audacity on Windows: Record, Edit, Export" />
-  <meta property="og:description" content="Step-by-step setup to record, edit, and export audio with Audacity on Windows 10/11. Includes safe download link and quick answers." />
-  <meta property="og:url" content="https://audacity-app.github.io/getting-started-audacity-windows.html" />
-  <meta property="og:image" content="https://audacity-app.github.io/og-image.png" />
-  <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="Getting Started with Audacity on Windows" />
-  <meta name="twitter:description" content="Record, edit, and export audio with Audacity on Windows. Safe 64‑bit download and tips inside." />
-  <meta name="twitter:image" content="https://audacity-app.github.io/og-image.png" />
-  <link rel="icon" href="/favicon.ico" sizes="any" />
-  <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
-  <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
-
-  <style>
-    :root{ --navy:#0B3A67; --deep:#123B82; --accent:#FF7F0F; --bg:#F7FAFC; --text:#0A0A0A; --muted:#44546A; --surface:#FFFFFF; --ring:#FF9B3D; --success:#1E8844; --warn:#B54708; }
-    html,body{height:100%}
-    body{margin:0; font-family:system-ui,-apple-system,Segoe UI,Roboto,Inter,Arial,sans-serif; color:var(--text); background:var(--bg); line-height:1.55; -webkit-font-smoothing:antialiased; -moz-osx-font-smoothing:grayscale;}
-    .container{max-width:1200px; margin-inline:auto; padding:0 16px;}
-    a{color:var(--deep); text-underline-offset:2px;} a:hover{color:var(--navy);} 
-    .btn{display:inline-flex; align-items:center; gap:.6rem; padding:.9rem 1.15rem; border-radius:10px; border:2px solid transparent; font-weight:700; text-decoration:none; cursor:pointer; transition:.2s;}
-    .btn-primary{background:var(--navy); color:#fff;} .btn-primary:hover{background:#092C50;}
-    .btn-outline{background:transparent; border-color:var(--navy); color:var(--navy);} .btn-outline:hover{background:#0b3a6710;}
-    .btn-contrast{background:var(--accent); color:#111;} .btn-contrast:hover{background:#FF8E2C;}
-    .btn:focus-visible{outline:3px solid var(--ring); outline-offset:2px;}
-
-    header{position:sticky; top:0; z-index:40; background:linear-gradient(0deg,#0B3A6700,#0B3A6715), var(--surface); border-bottom:1px solid #E6ECF2; backdrop-filter:saturate(120%) blur(2px);}    
-    .nav{display:flex; align-items:center; justify-content:space-between; padding:.75rem 0;}
-    .brand{display:flex; align-items:center; gap:.6rem; color:var(--navy); font-weight:800; letter-spacing:.2px;}
-    .brand .logo{width:28px; height:28px;}
-    .menu{display:flex; flex-wrap:wrap; gap:.6rem;}
-    .menu a{padding:.5rem .75rem; border-radius:8px; color:var(--navy); text-decoration:none; font-weight:600;}
-    .menu a:hover{background:#0b3a6710;}
-
-    .hero{background:linear-gradient(180deg,#0B3A67 0%,#123B82 50%,#0B3A67 100%); color:#fff;}
-    .hero .wrap{display:grid; grid-template-columns:1.1fr .9fr; gap:2rem; padding:2.6rem 0;}
-    .hero h1{font-size:clamp(1.6rem,2.2vw+1rem,2.6rem); margin:.5rem 0;}
-    .hero p.lead{color:#F3F8FF; font-size:1.05rem; max-width:64ch;}
-    .tag{display:inline-block; background:#FFFFFF22; color:#fff; border:1px solid #ffffff55; padding:.2rem .6rem; border-radius:999px; font-size:.85rem;}
-
-    .section{padding:2.2rem 0;}
-    .panel{background:var(--surface); border:1px solid #E6ECF2; border-radius:14px; padding:1rem;}
-    .grid{display:grid; gap:1rem;}
-    .grid.cols-2{grid-template-columns:repeat(2,1fr);} 
-    .grid.cols-3{grid-template-columns:repeat(3,1fr);} 
-    .howto-step{display:flex; gap:.8rem; align-items:flex-start;}
-    .howto-step svg{flex:0 0 auto; margin-top:.2rem;}
-    .kbd{font-family:ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", monospace; font-size:.9em; background:#0b3a6710; padding:.1rem .35rem; border-radius:6px; border:1px solid #0b3a6715;}
-
-    .faq details{border:1px solid #E6ECF2; background:var(--surface); border-radius:12px; padding:1rem;}
-    .faq details+details{margin-top:.8rem;}
-    .faq summary{cursor:pointer; font-weight:700; color:var(--navy);} 
-
-    footer{border-top:1px solid #E6ECF2; padding:1.25rem 0; color:var(--muted);} 
-
-    .cookie-banner{position:fixed; inset:auto 12px 12px 12px; z-index:50; background:var(--surface); border:1px solid #E6ECF2; border-radius:14px; padding:1rem; box-shadow:0 8px 30px #0b3a671f; display:none;}
-    .cookie-actions{display:flex; gap:.5rem; flex-wrap:wrap; margin-top:.75rem;}
-
-    .skip-link{position:absolute; left:-9999px;} .skip-link:focus{left:12px; top:12px; z-index:60; background:var(--accent); color:#111; padding:.5rem .75rem; border-radius:8px;}
-
-    @media (max-width: 960px){ .hero .wrap{grid-template-columns:1fr;} .grid.cols-2{grid-template-columns:1fr;} .grid.cols-3{grid-template-columns:1fr;} }
-  </style>
-
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "BreadcrumbList",
-    "itemListElement": [
-      {"@type": "ListItem", "position": 1, "name": "Home", "item": "https://audacity-app.github.io/"},
-      {"@type": "ListItem", "position": 2, "name": "Getting Started", "item": "https://audacity-app.github.io/getting-started-audacity-windows.html"}
-    ]
-  }
-  </script>
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "SoftwareApplication",
-    "name": "Audacity for Windows",
-    "applicationCategory": "AudioEditor",
-    "operatingSystem": "Windows 10/11 (64-bit)",
-    "softwareVersion": "3.7.7",
-    "isAccessibleForFree": true,
-    "downloadUrl": "https://release-assets.githubusercontent.com/github-production-release-asset/32921736/8c8d674e-b2ae-4b6e-8166-4ba3ebeef838?sp=r&sv=2018-11-09&sr=b&spr=https&se=2026-05-03T18%3A26%3A08Z&rscd=attachment%3B+filename%3Daudacity-win-3.7.7-64bit.exe",
-    "featureList": [
-      "Record via MME / Windows DirectSound / WASAPI loopback",
-      "Multi-track editing and spectral view",
-      "VST3/LV2/LADSPA/Nyquist effects",
-      "FFmpeg import for extended formats",
-      "Export MP3, WAV, FLAC"
-    ],
-    "offers": {"@type":"Offer", "price":"0", "priceCurrency":"USD", "availability":"https://schema.org/InStock"},
-    "publisher": {"@type":"Organization", "name":"Audacity App (Unofficial Guide)", "url":"https://audacity-app.github.io"}
-  }
-  </script>
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "HowTo",
-    "name": "Record, Edit, and Export Audio in Audacity (Windows)",
-    "description": "A beginner-friendly workflow for recording with microphone or WASAPI loopback, editing basic clips, and exporting MP3/WAV/FLAC on Windows.",
-    "totalTime": "PT10M",
-    "supply": [{"@type":"HowToSupply","name":"Microphone or audio source"}],
-    "tool": [{"@type":"HowToTool","name":"Windows PC"},{"@type":"HowToTool","name":"Audacity (64-bit)"}],
-    "step": [
-      {"@type":"HowToStep","position":1,"name":"Select your audio host and device","itemListElement":[{"@type":"HowToDirection","text":"Open Audacity and choose the host: WASAPI for system-audio loopback, or MME/DirectSound for microphones."}]},
-      {"@type":"HowToStep","position":2,"name":"Set levels and monitor","itemListElement":[{"@type":"HowToDirection","text":"Enable monitoring and adjust input levels so peaks are below 0 dB to avoid clipping."}]},
-      {"@type":"HowToStep","position":3,"name":"Record your first track","itemListElement":[{"@type":"HowToDirection","text":"Press Record, speak or play audio, then Stop. Use Spacebar to start/stop playback."}]},
-      {"@type":"HowToStep","position":4,"name":"Basic editing","itemListElement":[{"@type":"HowToDirection","text":"Select ranges to trim, split, fade in/out, and apply noise reduction if needed."}]},
-      {"@type":"HowToStep","position":5,"name":"Export your audio","itemListElement":[{"@type":"HowToDirection","text":"Go to File → Export and choose MP3, WAV, or FLAC. Name your file and save."}]}
-    ]
-  }
-  </script>
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "FAQPage",
-    "mainEntity": [
-      {"@type":"Question","name":"How do I record system audio on Windows?","acceptedAnswer":{"@type":"Answer","text":"Select WASAPI as the host and choose a loopback device (e.g., your speakers loopback). Then press Record to capture what-you-hear."}},
-      {"@type":"Question","name":"I can’t hear playback. What should I check?","acceptedAnswer":{"@type":"Answer","text":"Make sure the correct output device is selected in Audacity and Windows, and confirm the track is not muted. Increase the output volume slider."}},
-      {"@type":"Question","name":"Can I export MP3 without extra downloads?","acceptedAnswer":{"@type":"Answer","text":"Yes, modern Audacity builds include MP3 export. For additional import formats (AAC, AC3, AMR), install FFmpeg."}}
-    ]
-  }
-  </script>
-</head>
-<body>
-<a class="skip-link" href="#main">Skip to content</a>
-
-<svg width="0" height="0" style="position:absolute;">
-  <symbol id="ic-download" viewBox="0 0 24 24" fill="currentColor"><path d="M12 3a1 1 0 0 1 1 1v9.586l2.293-2.293a1 1 0 1 1 1.414 1.414l-4 4a1 1 0 0 1-1.414 0l-4-4A1 1 0 0 1 8.707 11.293L11 13.586V4a1 1 0 0 1 1-1z"/><path d="M4 18a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-1a1 1 0 1 1 2 0v1a4 4 0 0 1-4 4H6a4 4 0 0 1-4-4v-1a1 1 0 1 1 2 0v1z"/></symbol>
-  <symbol id="ic-windows" viewBox="0 0 24 24" fill="currentColor"><path d="M2 4l9-1.5v9.5H2V4zm0 16l9 1.5V12H2v8zM13 2.3L22 1v11h-9V2.3zM22 13v10l-9-1.3V13h9z"/></symbol>
-  <symbol id="ic-info" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2a10 10 0 1 0 0 20 10 10 0 0 0 0-20zm1 15h-2v-6h2v6zm0-8h-2V7h2v2z"/></symbol>
-  <symbol id="ic-check" viewBox="0 0 24 24" fill="currentColor"><path d="M20.285 6.708a1 1 0 0 1 .007 1.414l-9.2 9.2a1 1 0 0 1-1.414 0l-5.2-5.2a1 1 0 0 1 1.414-1.414l4.493 4.493 8.493-8.493a1 1 0 0 1 1.407 0z"/></symbol>
-  <symbol id="ic-close" viewBox="0 0 24 24" fill="currentColor"><path d="M18.3 5.71a1 1 0 0 1 0 1.41L13.41 12l4.89 4.88a1 1 0 1 1-1.42 1.42L12 13.41l-4.88 4.89a1 1 0 0 1-1.42-1.42L10.59 12 5.7 7.12A1 1 0 0 1 7.12 5.7L12 10.59l4.88-4.89a1 1 0 0 1 1.42 0z"/></symbol>
-</svg>
-
-<header>
-  <div class="container nav" role="navigation" aria-label="Main">
-    <a class="brand" href="/" aria-label="Home">
-      <svg class="logo" viewBox="0 0 48 48" aria-hidden="true"><circle cx="24" cy="24" r="22" fill="#0B3A67"/><path d="M8 28c6-2 10-8 16-8s10 6 16 8" stroke="#FF7F0F" stroke-width="3" fill="none" stroke-linecap="round"/></svg>
-      <span>Audacity for Windows</span>
-    </a>
-    <nav class="menu" aria-label="Site">
-      <a href="/audacity-windows-features.html">Features</a>
-      <a href="/install-audacity-windows.html">Install</a>
-      <a href="/getting-started-audacity-windows.html" aria-current="page">Getting Started</a>
-      <a href="/vinyl-to-mp3-windows-audacity.html">Vinyl to MP3</a>
-      <a href="/audacity-plugins-windows.html">Plugins</a>
-      <a href="/audacity-windows-troubleshooting.html">Troubleshooting</a>
-    </nav>
-  </div>
-</header>
-
-<main id="main">
-  <section class="hero">
-    <div class="container wrap">
-      <div>
-        <span class="tag">Windows 10/11 • 64‑bit</span>
-        <h1>Getting Started: Record, Edit, Export</h1>
-        <p class="lead">Set up your microphone or capture system audio with WASAPI, edit the essentials, and export to MP3/WAV/FLAC — all in minutes.</p>
-        <div style="margin-top:1rem; display:flex; gap:.75rem; flex-wrap:wrap;">
-          <a class="btn btn-contrast js-download" href="#" rel="noopener"><svg width="18" height="18" aria-hidden="true"><use href="#ic-download"/></svg> Download 64‑bit for Windows</a>
-          <a class="btn btn-outline" href="#workflow"><svg width="18" height="18" aria-hidden="true"><use href="#ic-info"/></svg> View quick workflow</a>
-        </div>
-      </div>
-      <div>
-        <div class="panel" id="workflow" aria-label="Quick workflow overview">
-          <h2 style="margin:0 0 .5rem; color:#0B3A67">At a glance</h2>
-          <ol style="margin:0; padding-left:1.1rem;">
-            <li>Select host: <span class="kbd">WASAPI</span> (loopback) or <span class="kbd">MME/DirectSound</span> for mic.</li>
-            <li>Arm monitoring and set safe levels (avoid clipping).</li>
-            <li>Record, trim mistakes, add fades or noise reduction.</li>
-            <li>Export to MP3, WAV, or FLAC.</li>
-          </ol>
-          <div style="margin-top:.9rem; display:flex; gap:.6rem; flex-wrap:wrap;">
-            <a class="btn btn-primary js-download" href="#"><svg width="18" height="18" aria-hidden="true"><use href="#ic-download"/></svg> Get the installer</a>
-            <a class="btn btn-outline" href="/audacity-plugins-windows.html">Add plugins & FFmpeg</a>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <section class="section container">
-    <div class="grid cols-3">
-      <div class="panel howto-step">
-        <svg width="22" height="22" aria-hidden="true"><use href="#ic-windows"/></svg>
-        <div>
-          <h3 style="margin:.1rem 0; color:var(--navy)">1) Choose host & device</h3>
-          <p style="margin:0; color:var(--muted)">Use <span class="kbd">WASAPI</span> for system audio loopback. For microphones and line‑in, choose <span class="kbd">MME</span> or <span class="kbd">DirectSound</span>. Then select your input and output devices.</p>
-        </div>
-      </div>
-      <div class="panel howto-step">
-        <svg width="22" height="22" aria-hidden="true"><use href="#ic-check"/></svg>
-        <div>
-          <h3 style="margin:.1rem 0; color:var(--navy)">2) Set levels</h3>
-          <p style="margin:0; color:var(--muted)">Enable monitoring and adjust gain so peaks are below 0 dB. Keep healthy headroom to avoid clipping and distortion.</p>
-        </div>
-      </div>
-      <div class="panel howto-step">
-        <svg width="22" height="22" aria-hidden="true"><use href="#ic-info"/></svg>
-        <div>
-          <h3 style="margin:.1rem 0; color:var(--navy)">3) Record & edit</h3>
-          <p style="margin:0; color:var(--muted)">Press Record, then trim mistakes, split clips, fade in/out, and reduce noise. Use <span class="kbd">Space</span> to play/stop.</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <section class="section container">
-    <div class="grid cols-2">
-      <div class="panel">
-        <h2>Export your audio</h2>
-        <ul style="margin:0 0 0 1rem;">
-          <li><strong>MP3</strong> — great for sharing and podcasts.</li>
-          <li><strong>WAV</strong> — lossless, best for archiving or further editing.</li>
-          <li><strong>FLAC</strong> — lossless with compression.</li>
-          <li>Go to <span class="kbd">File → Export</span>, choose format, name file, and save.</li>
-        </ul>
-      </div>
-      <div class="panel">
-        <h2>Tips for Windows</h2>
-        <ul style="margin:0 0 0 1rem;">
-          <li>Allow microphone in Settings → Privacy & Security → Microphone.</li>
-          <li>For what‑you‑hear capture, choose <span class="kbd">WASAPI</span> host and a <span class="kbd">loopback</span> device.</li>
-          <li>Install FFmpeg to import additional formats (AAC, AC3, AMR).</li>
-        </ul>
-      </div>
-    </div>
-  </section>
-
-  <section class="section container">
-    <div class="panel" style="display:flex; align-items:center; justify-content:space-between; gap:1rem; flex-wrap:wrap;">
-      <div>
-        <h2 style="margin:.2rem 0;">Ready to record?</h2>
-        <p style="margin:.2rem 0; color:var(--muted)">Download the free 64‑bit Windows installer and start capturing audio right away.</p>
-      </div>
-      <a class="btn btn-contrast js-download" href="#"><svg width="18" height="18" aria-hidden="true"><use href="#ic-download"/></svg> Download for Windows</a>
-    </div>
-  </section>
-
-  <section class="section container faq" aria-label="Frequently asked questions">
-    <h2>Quick answers</h2>
-    <details>
-      <summary>How do I record system audio on Windows?</summary>
-      <p>Select <strong>WASAPI</strong> as the host and choose a <strong>loopback</strong> device (e.g., speakers loopback). Then press Record to capture what‑you‑hear.</p>
-    </details>
-    <details>
-      <summary>I can’t hear playback — how to fix?</summary>
-      <p>Pick the correct output device in Audacity and Windows, unmute the track, and raise the output volume slider. Try switching host from MME to DirectSound if needed.</p>
-    </details>
-    <details>
-      <summary>Where is MP3 export?</summary>
-      <p>Go to File → Export and choose MP3. For extra import formats, add FFmpeg from the Plugins page.</p>
-    </details>
-  </section>
-
-  <section class="section container">
-    <div class="grid cols-2">
-      <div class="panel">
-        <h2>Next steps</h2>
-        <ul style="margin:0 0 0 1rem;">
-          <li><a href="/audacity-plugins-windows.html">Install VST3/LV2/LADSPA plugins & FFmpeg</a></li>
-          <li><a href="/vinyl-to-mp3-windows-audacity.html">Convert vinyl and tapes to MP3</a></li>
-          <li><a href="/audacity-windows-troubleshooting.html">Fix recording and device issues</a></li>
-        </ul>
-      </div>
-      <div class="panel">
-        <h2>System requirements</h2>
-        <ul style="margin:0 0 0 1rem;">
-          <li>Windows 10 or 11 (64‑bit)</li>
-          <li>4 GB RAM (8 GB recommended)</li>
-          <li>~200 MB for installation; extra space for projects</li>
-        </ul>
-      </div>
-    </div>
-  </section>
-</main>
-
-<footer>
-  <div class="container" style="display:flex; align-items:flex-start; justify-content:space-between; gap:1rem; flex-wrap:wrap;">
-    <small>© <span id="year"></span> Audacity App (Unofficial Guide). This site is not affiliated with the Audacity Team. “Audacity” is a trademark of its respective owner.</small>
-    <small id="last-mod">Last updated: —</small>
-  </div>
-</footer>
-
-<div id="cookie-banner" class="cookie-banner" role="dialog" aria-labelledby="cookie-title" aria-describedby="cookie-desc" aria-live="polite">
-  <strong id="cookie-title" style="color:var(--navy)">We use cookies for analytics.</strong>
-  <p id="cookie-desc" style="margin:.35rem 0 0; color:var(--muted)">We use Google Analytics 4 to understand how our site is used. You can accept or decline. You can change your choice later by clearing site data.</p>
-  <div class="cookie-actions">
-    <button id="cookie-accept" class="btn btn-primary">Accept</button>
-    <button id="cookie-decline" class="btn btn-outline">Decline</button>
-    <button id="cookie-close" class="btn" aria-label="Close cookie banner" title="Close" style="margin-left:auto"><svg width="18" height="18" aria-hidden="true"><use href="#ic-close"/></svg> Close</button>
-  </div>
-</div>
-
-<script>
-  // --- Config ---
-  const GA_MEASUREMENT_ID = 'G-1J7BVS47GG';
-  const FILE_URL = 'https://release-assets.githubusercontent.com/github-production-release-asset/32921736/8c8d674e-b2ae-4b6e-8166-4ba3ebeef838?sp=r&sv=2018-11-09&sr=b&spr=https&se=2026-05-03T18%3A26%3A08Z&rscd=attachment%3B+filename%3Daudacity-win-3.7.7-64bit.exe';
-  const FILE_LABEL = 'audacity-win-3.7.7-64bit.exe';
-
-  // Attach the direct download link to all .js-download buttons
-  document.addEventListener('DOMContentLoaded', () => {
-    document.querySelectorAll('.js-download').forEach(a => a.setAttribute('href', FILE_URL));
-  });
-
-  // Last modified + year
-  (function(){
-    const lm = new Date(document.lastModified);
-    const fmtr = new Intl.DateTimeFormat(undefined, {year:'numeric', month:'short', day:'2-digit', hour:'2-digit', minute:'2-digit'});
-    document.getElementById('last-mod').textContent = 'Last updated: ' + fmtr.format(lm);
-    document.getElementById('year').textContent = new Date().getFullYear();
-  })();
-
-  // Cookie consent logic (deferred GA loading)
-  const banner = document.getElementById('cookie-banner');
-  const acceptBtn = document.getElementById('cookie-accept');
-  const declineBtn = document.getElementById('cookie-decline');
-  const closeBtn = document.getElementById('cookie-close');
-
-  function showBanner(){ banner.style.display = 'block'; }
-  function hideBanner(){ banner.style.display = 'none'; }
-
-  function loadGA(){
-    if (window.__gaLoaded) return;
-    window.__gaLoaded = true;
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){ dataLayer.push(arguments); }
-    window.gtag = window.gtag || gtag;
-    gtag('js', new Date());
-    gtag('config', GA_MEASUREMENT_ID, { anonymize_ip: true });
-
-    const s = document.createElement('script');
-    s.async = true;
-    s.src = 'https://www.googletagmanager.com/gtag/js?id=' + encodeURIComponent(GA_MEASUREMENT_ID);
-    document.head.appendChild(s);
-  }
-
-  (function(){
-    const saved = localStorage.getItem('cookie_consent');
-    if (saved === 'granted') {
-      loadGA();
-    } else if (saved === 'denied') {
-      // GA stays disabled
-    } else {
-      showBanner();
-    }
-  })();
-
-  acceptBtn.addEventListener('click', () => { localStorage.setItem('cookie_consent','granted'); loadGA(); hideBanner(); });
-  declineBtn.addEventListener('click', () => { localStorage.setItem('cookie_consent','denied'); hideBanner(); });
-  closeBtn.addEventListener('click', hideBanner);
-
-  // Download click tracking
-  function trackDownload(url){
-    try {
-      if (window.gtag) {
-        window.gtag('event', 'file_download', {
-          event_category: 'downloads',
-          event_label: FILE_LABEL,
-          file_url: url
-        });
-      }
-    } catch (e) { /* noop */ }
-  }
-  document.addEventListener('click', (e) => {
-    const a = e.target.closest && e.target.closest('a.js-download');
-    if (a) { trackDownload(a.href); }
-  });
-  document.addEventListener('keydown', (e) => {
-    if ((e.key === 'Enter' || e.key === ' ') && document.activeElement && document.activeElement.matches('a.js-download')) {
-      trackDownload(document.activeElement.href);
-    }
-  });
-</script>
-</body>
-</html>
+<!doctype html><html lang="en"><head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Getting Started with Audacity on Windows — First Recording Guide</title>
+<meta name="description" content="Make your first recording in Audacity on Windows. Set up WASAPI, configure microphone, record, listen back and export to MP3.">
+<meta name="robots" content="index,follow">
+<link rel="canonical" href="https://audacity-app.github.io/getting-started-audacity-windows.html">
+<meta name="last-modified" content="2026-06-10">
+<meta property="og:title" content="Getting Started with Audacity on Windows — First Recording Guide">
+<meta property="og:description" content="Make your first recording in Audacity on Windows. Set up WASAPI, configure microphone, record, listen back and export to MP3.">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://audacity-app.github.io/getting-started-audacity-windows.html">
+<meta property="og:image" content="https://audacity-app.github.io/og-image.png">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="icon" href="/favicon.svg">
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="stylesheet" href="/style.css">
+</head><body>
+<nav class="site-nav"><div class="wrap"><div class="nav-inner"><a href="/index.html" class="nav-logo"><div class="nav-logo-mark">Au</div><span class="nav-logo-name">Audacity</span><span class="nav-logo-sub">for Windows</span></a><div class="nav-links"><a href="/index.html" id="nl-home">Download</a><a href="/install-audacity-windows.html" id="nl-install">Install</a><a href="/audacity-plugins-windows.html" id="nl-plugins">Plugins</a><a href="/audacity-windows-troubleshooting.html" id="nl-fix">Fix errors</a><a href="/audacity-windows-faq.html" id="nl-faq">FAQ</a></div><a href="/index.html" class="nav-cta"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg> Download</a></div></div></nav>
+<div class="page-hero"><div class="wrap">
+<nav class="breadcrumb"><a href="/index.html">home</a> <span>/</span> <span>getting-started-audacity-windows</span></nav>
+<span class="page-tag">Getting started</span>
+<h1>Getting started with Audacity on Windows &mdash; <span>first recording guide</span></h1>
+<div class="answer-box">To get started with Audacity on Windows: install the app, set Host to <strong>Windows WASAPI</strong>, select your microphone, press the red Record button, speak, then stop. Export with File &rarr; Export Audio. Your first recording takes under 5 minutes to complete.</div>
+</div></div>
+<div class="wrap"><div class="content-layout">
+<main><div class="section"><span class="section-label">First recording</span><h2>Make your first recording in Audacity</h2><ul class="steps">
+<li class="step"><div class="step-n">1</div><div><h3>Set up audio</h3><p>Edit &rarr; Preferences &rarr; Devices &rarr; Host: <strong>Windows WASAPI</strong> &rarr; Recording: your microphone &rarr; Channels: 1 Mono.</p></div></li>
+<li class="step"><div class="step-n">2</div><div><h3>Set recording level</h3><p>Click the microphone monitoring icon. Speak at normal volume. The level meter should peak between &minus;12 and &minus;6 dB. Adjust the input slider if needed.</p></div></li>
+<li class="step"><div class="step-n">3</div><div><h3>Record</h3><p>Press the red <strong>Record</strong> button (or <kbd>R</kbd>). Speak or play. You will see a waveform appear in real time.</p></div></li>
+<li class="step"><div class="step-n">4</div><div><h3>Stop and listen</h3><p>Press the square <strong>Stop</strong> button (or <kbd>Space</kbd>). Press <kbd>Space</kbd> again to play back your recording.</p></div></li>
+<li class="step"><div class="step-n">5</div><div><h3>Export</h3><p>File &rarr; Export Audio &rarr; MP3 Files. Choose 128 kbps for voice. Click Save.</p></div></li>
+</ul></div>
+<div class="section"><span class="section-label">FAQ</span><h2>Getting started questions</h2><div class="faq">
+<div class="faq-item"><details><summary>How do I undo in Audacity?</summary><div class="faq-ans"><p>Press <kbd>Ctrl+Z</kbd> to undo the last action. Audacity supports unlimited undo history. Go to Edit &rarr; History to see all actions and jump to any point.</p></div></details></div>
+<div class="faq-item"><details><summary>How do I save an Audacity project?</summary><div class="faq-ans"><p>File &rarr; Save Project. Audacity saves as .aup3 (a single file containing all tracks and edits). To share with others or use in other software, use File &rarr; Export Audio to create a standard audio file (MP3, WAV, etc.).</p></div></details></div>
+</div></div>
+<div class="cta-banner"><div><h2>Want to remove background noise?</h2><p>Step-by-step noise reduction guide.</p></div><a href="/audacity-noise-reduction-windows.html" class="btn-white"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>Noise reduction</a></div>
+<div style="margin-bottom:24px"><span class="section-label">Related guides</span><div class="rel-grid"><a href="/audacity-noise-reduction-windows.html" class="rel-card"><div class="rel-title">Noise reduction &rarr;</div><div class="rel-sub">clean up audio</div></a><a href="/audacity-mp3-export-windows.html" class="rel-card"><div class="rel-title">Export to MP3 &rarr;</div><div class="rel-sub">save your work</div></a><a href="/audacity-plugins-windows.html" class="rel-card"><div class="rel-title">Plugins &rarr;</div><div class="rel-sub">add effects</div></a></div></div></main>
+<aside class="content-sidebar"><div class="sb-ver"><div class="sb-ver-label">Latest version</div><div class="sb-ver-val">3.7.3</div><div class="sb-ver-sub">Windows 10 / 11 · Free</div></div><div class="sb-card"><div class="sb-card-title">Install</div><ul class="sb-links"><li><a href="/index.html">Download Audacity</a></li><li><a href="/install-audacity-windows.html">Install guide</a></li><li><a href="/audacity-update-windows.html">Update Audacity</a></li><li><a href="/audacity-system-requirements.html">System requirements</a></li><li><a href="/audacity-windows-11.html">Windows 11</a></li></ul></div><div class="sb-card"><div class="sb-card-title">Audio setup</div><ul class="sb-links"><li><a href="/audacity-wasapi-windows.html">WASAPI setup</a></li><li><a href="/audacity-asio-windows.html">ASIO setup</a></li><li><a href="/audacity-microphone-setup.html">Microphone setup</a></li><li><a href="/audacity-latency-fix-windows.html">Fix latency</a></li><li><a href="/audacity-mp3-export-windows.html">Export to MP3</a></li><li><a href="/vinyl-to-mp3-windows-audacity.html">Vinyl to MP3</a></li></ul></div><div class="sb-card"><div class="sb-card-title">Plugins</div><ul class="sb-links"><li><a href="/audacity-plugins-windows.html">Plugins guide</a></li><li><a href="/audacity-vst3-windows.html">VST3 plugins</a></li></ul></div><div class="sb-card"><div class="sb-card-title">Fix & learn</div><ul class="sb-links"><li><a href="/audacity-windows-troubleshooting.html">Troubleshooting</a></li><li><a href="/audacity-not-recording-windows.html">Not recording</a></li><li><a href="/audacity-noise-reduction-windows.html">Noise reduction</a></li><li><a href="/getting-started-audacity-windows.html" class="cur">Getting started</a></li><li><a href="/audacity-windows-features.html">Features</a></li><li><a href="/audacity-vs-audition-windows.html">Audacity vs Audition</a></li><li><a href="/audacity-windows-faq.html">FAQ</a></li></ul></div></aside>
+</div></div>
+<footer class="site-footer"><div class="wrap"><div class="footer-inner"><div><div class="footer-logo"><div class="footer-logo-mark">Au</div><span class="footer-logo-name">Audacity for Windows</span></div><p class="footer-tagline">Unofficial Windows guide &mdash; not affiliated with the Audacity team.</p></div><div><div class="footer-col-title">Install</div><ul class="footer-links"><li><a href="/index.html">Download Audacity</a></li><li><a href="/install-audacity-windows.html">Install guide</a></li><li><a href="/audacity-update-windows.html">Update Audacity</a></li><li><a href="/audacity-system-requirements.html">System requirements</a></li><li><a href="/audacity-windows-11.html">Windows 11 guide</a></li></ul></div><div><div class="footer-col-title">Audio setup</div><ul class="footer-links"><li><a href="/audacity-wasapi-windows.html">WASAPI setup</a></li><li><a href="/audacity-asio-windows.html">ASIO setup</a></li><li><a href="/audacity-microphone-setup.html">Microphone setup</a></li><li><a href="/audacity-latency-fix-windows.html">Fix latency</a></li><li><a href="/audacity-mp3-export-windows.html">Export to MP3</a></li></ul></div><div><div class="footer-col-title">Fix & learn</div><ul class="footer-links"><li><a href="/audacity-windows-troubleshooting.html">Troubleshooting</a></li><li><a href="/audacity-not-recording-windows.html">Not recording</a></li><li><a href="/audacity-plugins-windows.html">Plugins</a></li><li><a href="/audacity-vst3-windows.html">VST3 plugins</a></li><li><a href="/audacity-windows-faq.html">FAQ</a></li></ul></div></div><div class="footer-bottom"><p>Not affiliated with Audacity or the Audacity team. Unofficial community guide.</p></div></div></footer><div class="cookie-bar" id="cookieBar" style="display:none"><p>We use Google Analytics for anonymous traffic data. <a href="/audacity-windows-faq.html">Privacy</a></p><div class="cookie-btns"><button class="cookie-accept" id="cookieAccept">Accept</button><button class="cookie-decline" id="cookieDecline">Decline</button></div></div><script async src="https://www.googletagmanager.com/gtag/js?id=G-1J7BVS47GG"></script><script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag("consent","default",{analytics_storage:"denied",ad_storage:"denied"});gtag("js",new Date());gtag("config","G-1J7BVS47GG",{anonymize_ip:true,send_page_view:false});function grantGA(){gtag("consent","update",{analytics_storage:"granted"});gtag("event","page_view",{page_location:location.href,page_title:document.title})}document.addEventListener("DOMContentLoaded",function(){var bar=document.getElementById("cookieBar"),c=localStorage.getItem("aud_consent");if(!c){bar.style.display="flex"}else if(c==="1"){grantGA()}document.getElementById("cookieAccept").onclick=function(){localStorage.setItem("aud_consent","1");grantGA();bar.style.display="none"};document.getElementById("cookieDecline").onclick=function(){localStorage.setItem("aud_consent","0");bar.style.display="none"};});</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"HowTo","name":"Make First Recording in Audacity on Windows","step":[{"@type":"HowToStep","position":1,"name":"Set audio host","text":"Preferences > Devices > Windows WASAPI"},{"@type":"HowToStep","position":2,"name":"Set level","text":"Enable monitoring and adjust input to -12 to -6 dB"},{"@type":"HowToStep","position":3,"name":"Record","text":"Press red Record button or R"},{"@type":"HowToStep","position":4,"name":"Export","text":"File > Export Audio > MP3"}]}</script>
+<script>var el=document.getElementById("nl-home");if(el)el.classList.add("active");</script>
+</body></html>

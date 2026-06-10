@@ -1,13 +1,8 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<svg xmlns="http://www.w3.org/2000/svg" width="64" height="64" viewBox="0 0 64 64" role="img" aria-label="Audacity for Windows favicon">
-  <defs>
-    <filter id="s" x="-20%" y="-20%" width="140%" height="140%">
-      <feDropShadow dx="0" dy="1" stdDeviation="1.2" flood-color="#000" flood-opacity="0.25"/>
-    </filter>
-  </defs>
-  <circle cx="32" cy="32" r="30" fill="#0B3A67"/>
-  <path d="M10 36
-           C 14 32, 18 24, 22 24
-           S 30 32, 34 36
-           S 42 40, 54 34" fill="none" stroke="#FF7F0F" stroke-width="4" stroke-linecap="round" filter="url(#s)"/>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32">
+  <rect width="32" height="32" rx="7" fill="#0d1f3c"/>
+  <rect x="7" y="12" width="2" height="8" rx="1" fill="#1a6abf"/>
+  <rect x="11" y="8" width="2" height="16" rx="1" fill="#1a6abf"/>
+  <rect x="15" y="10" width="2" height="12" rx="1" fill="#1a6abf"/>
+  <rect x="19" y="7" width="2" height="18" rx="1" fill="#1a6abf"/>
+  <rect x="23" y="11" width="2" height="10" rx="1" fill="#1a6abf"/>
 </svg>

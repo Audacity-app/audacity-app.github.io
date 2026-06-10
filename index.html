@@ -1,443 +1,70 @@
-<!doctype html>
-<html lang="en">
-<head>
-  <meta charset="utf-8" />
-  <meta name="google-site-verification" content="LcS4Ttnx9ad6bb5hAiimnDQsr4hhTKiAjnMRtFy6VTI" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Download Audacity for Windows (Free, Safe 64‑bit)</title>
-  <meta name="description" content="Fast and safe 64‑bit download of Audacity for Windows. Features, system requirements, quick install steps, and troubleshooting. Unofficial guide." />
-  <link rel="canonical" href="https://audacity-app.github.io/" />
-  <meta name="robots" content="index, follow" />
-  <meta name="theme-color" content="#0B3A67" />
-  <meta property="og:type" content="website" />
-  <meta property="og:title" content="Download Audacity for Windows (Free, Safe 64‑bit)" />
-  <meta property="og:description" content="Fast and safe 64‑bit download of Audacity for Windows. Features, system requirements, and quick install steps." />
-  <meta property="og:url" content="https://audacity-app.github.io/" />
-  <meta property="og:image" content="https://audacity-app.github.io/og-image.png" />
-  <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="Download Audacity for Windows (Free, Safe 64‑bit)" />
-  <meta name="twitter:description" content="Fast and safe 64‑bit download of Audacity for Windows. Features and quick install steps." />
-  <meta name="twitter:image" content="https://audacity-app.github.io/og-image.png" />
-  <link rel="icon" href="/favicon.ico" sizes="any" />
-  <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
-  <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
-
-  <style>
-    :root{
-      --navy:#0B3A67; /* primary */
-      --deep:#123B82; /* deep blue */
-      --accent:#FF7F0F; /* orange */
-      --bg:#F7FAFC; /* light background */
-      --text:#0A0A0A;
-      --muted:#44546A;
-      --surface:#FFFFFF;
-      --ring:#FF9B3D; /* focus ring */
-      --success:#1E8844;
-      --warn:#B54708;
-    }
-    html,body{height:100%;}
-    body{
-      margin:0; font-family:system-ui,-apple-system,Segoe UI,Roboto,Inter,Arial,sans-serif;
-      color:var(--text); background:var(--bg); line-height:1.5;
-      -webkit-font-smoothing:antialiased; -moz-osx-font-smoothing:grayscale;
-    }
-    .container{max-width:1200px; margin-inline:auto; padding:0 16px;}
-    a{color:var(--deep); text-underline-offset:2px;}
-    a:hover{color:var(--navy);} 
-    .btn{display:inline-flex; align-items:center; gap:.6rem; padding:.9rem 1.15rem; border-radius:10px; border:2px solid transparent; font-weight:700; text-decoration:none; cursor:pointer; transition:.2s ease-in-out;}
-    .btn-primary{background:var(--navy); color:#fff;}
-    .btn-primary:hover{background:#092C50;}
-    .btn-outline{background:transparent; border-color:var(--navy); color:var(--navy);} 
-    .btn-outline:hover{background:#0b3a6715;}
-    .btn-contrast{background:var(--accent); color:#111;}
-    .btn-contrast:hover{background:#FF8E2C;}
-    .btn:focus-visible{outline:3px solid var(--ring); outline-offset:2px;}
-
-    header{
-      position:sticky; top:0; z-index:40; background:linear-gradient(0deg,#0B3A6700,#0B3A6715), var(--surface);
-      border-bottom:1px solid #E6ECF2;
-      backdrop-filter:saturate(120%) blur(2px);
-    }
-    .nav{display:flex; align-items:center; justify-content:space-between; padding:.75rem 0;}
-    .brand{display:flex; align-items:center; gap:.6rem; color:var(--navy); font-weight:800; letter-spacing:.2px;}
-    .brand .logo{width:28px; height:28px;}
-    .menu{display:flex; flex-wrap:wrap; gap:.6rem;}
-    .menu a{padding:.5rem .75rem; border-radius:8px; color:var(--navy); text-decoration:none; font-weight:600;}
-    .menu a:hover{background:#0b3a6710;}
-
-    .hero{background:linear-gradient(180deg,#0B3A67 0%,#123B82 50%,#0B3A67 100%);
-      color:#fff;}
-    .hero .wrap{display:grid; grid-template-columns:1.1fr .9fr; gap:2rem; padding:3rem 0;}
-    .tag{display:inline-block; background:#FFFFFF22; color:#fff; border:1px solid #ffffff55; padding:.2rem .6rem; border-radius:999px; font-size:.85rem;}
-    .hero h1{font-size:clamp(1.8rem,2.6vw+1rem,3rem); margin:.75rem 0;}
-    .hero p.lead{color:#F3F8FF; font-size:1.05rem; max-width:60ch;}
-    .cta{display:flex; gap:.75rem; flex-wrap:wrap; margin-top:1rem;}
-    .trust{display:flex; gap:1rem; align-items:center; flex-wrap:wrap; margin-top:1rem; color:#DCE7F6;}
-    .trust small{opacity:.9;}
-
-    .panel{background:var(--surface); border:1px solid #E6ECF2; border-radius:14px; padding:1rem;}
-    .grid{display:grid; gap:1rem;}
-    .grid.cols-3{grid-template-columns:repeat(3,1fr);}    
-    .grid.cols-2{grid-template-columns:repeat(2,1fr);}    
-
-    .section{padding:2.5rem 0;}
-    .section h2{color:var(--navy); margin:0 0 1rem;}
-    .feature{display:flex; gap:.8rem; align-items:flex-start;}
-    .feature svg{flex:0 0 auto; margin-top:.15rem;}
-    .kbd{font-family:ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", monospace; font-size:.9em; background:#0b3a6710; padding:.1rem .35rem; border-radius:6px; border:1px solid #0b3a6715;}
-
-    .faq details{border:1px solid #E6ECF2; background:var(--surface); border-radius:12px; padding:1rem;}
-    .faq details+details{margin-top:.8rem;}
-    .faq summary{cursor:pointer; font-weight:700; color:var(--navy);} 
-    .faq p{margin:.5rem 0 0;}
-
-    footer{border-top:1px solid #E6ECF2; padding:1.25rem 0; color:var(--muted);} 
-
-    .cookie-banner{position:fixed; inset:auto 12px 12px 12px; z-index:50; background:var(--surface); border:1px solid #E6ECF2; border-radius:14px; padding:1rem; box-shadow:0 8px 30px #0b3a671f; display:none;}
-    .cookie-actions{display:flex; gap:.5rem; flex-wrap:wrap; margin-top:.75rem;}
-
-    .skip-link{position:absolute; left:-9999px;} 
-    .skip-link:focus{left:12px; top:12px; z-index:60; background:var(--accent); color:#111; padding:.5rem .75rem; border-radius:8px;}
-
-    @media (max-width: 960px){
-      .hero .wrap{grid-template-columns:1fr; padding:2rem 0;}
-      .grid.cols-3{grid-template-columns:1fr;}
-      .grid.cols-2{grid-template-columns:1fr;}
-    }
-  </style>
-
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "SoftwareApplication",
-    "name": "Audacity for Windows",
-    "applicationCategory": "AudioEditor",
-    "operatingSystem": "Windows 10/11 (64-bit)",
-    "softwareVersion": "3.7.7",
-    "isAccessibleForFree": true,
-    "downloadUrl": "https://release-assets.githubusercontent.com/github-production-release-asset/32921736/8c8d674e-b2ae-4b6e-8166-4ba3ebeef838?sp=r&sv=2018-11-09&sr=b&spr=https&se=2026-05-03T18%3A26%3A08Z&rscd=attachment%3B+filename%3Daudacity-win-3.7.7-64bit.exe",
-    "offers": {
-      "@type": "Offer",
-      "price": "0",
-      "priceCurrency": "USD",
-      "availability": "https://schema.org/InStock"
-    },
-    "publisher": {
-      "@type": "Organization",
-      "name": "Audacity App (Unofficial Guide)",
-      "url": "https://audacity-app.github.io"
-    },
-    "applicationSuite": "Audio Recording & Editing",
-    "featureList": [
-      "Record via MME / Windows DirectSound / WASAPI loopback",
-      "Multi-track editing and spectral view",
-      "VST3/LV2/LADSPA/Nyquist effects",
-      "FFmpeg for extended formats",
-      "Export MP3, WAV, FLAC"
-    ],
-    "potentialAction": {
-      "@type": "DownloadAction",
-      "target": {
-        "@type": "EntryPoint",
-        "urlTemplate": "https://release-assets.githubusercontent.com/github-production-release-asset/32921736/8c8d674e-b2ae-4b6e-8166-4ba3ebeef838?sp=r&sv=2018-11-09&sr=b&spr=https&se=2026-05-03T18%3A26%3A08Z&rscd=attachment%3B+filename%3Daudacity-win-3.7.7-64bit.exe",
-        "actionPlatform": ["https://schema.org/DesktopApplication"]
-      }
-    }
-  }
-  </script>
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "FAQPage",
-    "mainEntity": [
-      {
-        "@type": "Question",
-        "name": "Is Audacity free and safe on Windows?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "Yes. Audacity is a free, open-source audio editor. The 64-bit Windows build is safe to install. Always download from a trusted link."
-        }
-      },
-      {
-        "@type": "Question",
-        "name": "Which Windows versions are supported?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "Current releases target Windows 10 and 11 (64-bit). Older systems may require legacy builds."
-        }
-      },
-      {
-        "@type": "Question",
-        "name": "Can I record system audio (what-you-hear)?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "Yes. Select WASAPI as the host and choose a loopback device to capture system audio on Windows."
-        }
-      }
-    ]
-  }
-  </script>
-</head>
-<body>
-<a class="skip-link" href="#main">Skip to content</a>
-
-<svg width="0" height="0" style="position:absolute;">
-  <symbol id="ic-download" viewBox="0 0 24 24" fill="currentColor">
-    <path d="M12 3a1 1 0 0 1 1 1v9.586l2.293-2.293a1 1 0 1 1 1.414 1.414l-4 4a1 1 0 0 1-1.414 0l-4-4A1 1 0 0 1 8.707 11.293L11 13.586V4a1 1 0 0 1 1-1z"/>
-    <path d="M4 18a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-1a1 1 0 1 1 2 0v1a4 4 0 0 1-4 4H6a4 4 0 0 1-4-4v-1a1 1 0 1 1 2 0v1z"/>
-  </symbol>
-  <symbol id="ic-windows" viewBox="0 0 24 24" fill="currentColor">
-    <path d="M2 4l9-1.5v9.5H2V4zm0 16l9 1.5V12H2v8zM13 2.3L22 1v11h-9V2.3zM22 13v10l-9-1.3V13h9z"/>
-  </symbol>
-  <symbol id="ic-info" viewBox="0 0 24 24" fill="currentColor">
-    <path d="M12 2a10 10 0 1 0 0 20 10 10 0 0 0 0-20zm1 15h-2v-6h2v6zm0-8h-2V7h2v2z"/>
-  </symbol>
-  <symbol id="ic-check" viewBox="0 0 24 24" fill="currentColor">
-    <path d="M20.285 6.708a1 1 0 0 1 .007 1.414l-9.2 9.2a1 1 0 0 1-1.414 0l-5.2-5.2a1 1 0 0 1 1.414-1.414l4.493 4.493 8.493-8.493a1 1 0 0 1 1.407 0z"/>
-  </symbol>
-  <symbol id="ic-close" viewBox="0 0 24 24" fill="currentColor">
-    <path d="M18.3 5.71a1 1 0 0 1 0 1.41L13.41 12l4.89 4.88a1 1 0 1 1-1.42 1.42L12 13.41l-4.88 4.89a1 1 0 0 1-1.42-1.42L10.59 12 5.7 7.12A1 1 0 0 1 7.12 5.7L12 10.59l4.88-4.89a1 1 0 0 1 1.42 0z"/>
-  </symbol>
-</svg>
-
-<header>
-  <div class="container nav" role="navigation" aria-label="Main">
-    <a class="brand" href="/" aria-label="Home">
-      <svg class="logo" viewBox="0 0 48 48" aria-hidden="true"><circle cx="24" cy="24" r="22" fill="#0B3A67"/><path d="M8 28c6-2 10-8 16-8s10 6 16 8" stroke="#FF7F0F" stroke-width="3" fill="none" stroke-linecap="round"/></svg>
-      <span>Audacity for Windows</span>
-    </a>
-    <nav class="menu" aria-label="Site">
-      <a href="/audacity-windows-features.html">Features</a>
-      <a href="/install-audacity-windows.html">Install</a>
-      <a href="/getting-started-audacity-windows.html">Getting Started</a>
-      <a href="/vinyl-to-mp3-windows-audacity.html">Vinyl to MP3</a>
-      <a href="/audacity-plugins-windows.html">Plugins</a>
-      <a href="/audacity-windows-troubleshooting.html">Troubleshooting</a>
-    </nav>
-  </div>
-</header>
-
-<main id="main">
-  <section class="hero">
-    <div class="container wrap">
-      <div>
-        <span class="tag" aria-label="64-bit Windows build">Free • 64‑bit • Windows</span>
-        <h1>Download Audacity for Windows</h1>
-        <p class="lead">Fast, safe, and free 64‑bit build of Audacity for Windows 10/11. Record, edit, and export audio with WASAPI loopback, VST3/LV2 effects, and more.</p>
-        <div class="cta">
-          <a id="hero-download" class="btn btn-contrast js-download" href="https://release-assets.githubusercontent.com/github-production-release-asset/32921736/8c8d674e-b2ae-4b6e-8166-4ba3ebeef838?sp=r&sv=2018-11-09&sr=b&spr=https&se=2026-05-03T18%3A26%3A08Z&rscd=attachment%3B+filename%3Daudacity-win-3.7.7-64bit.exe" rel="noopener" aria-label="Download Audacity for Windows 64-bit">
-            <svg width="20" height="20" aria-hidden="true"><use href="#ic-download"/></svg>
-            <span>Download for Windows (64‑bit)</span>
-          </a>
-          <a class="btn btn-outline" href="#requirements"><svg width="18" height="18" aria-hidden="true"><use href="#ic-info"/></svg> System requirements</a>
-        </div>
-        <div class="trust">
-          <small><svg width="16" height="16" aria-hidden="true"><use href="#ic-check"/></svg> No ads • No bundles</small>
-          <small><svg width="16" height="16" aria-hidden="true"><use href="#ic-windows"/></svg> Windows 10/11 (64‑bit)</small>
-        </div>
-      </div>
-      <div>
-        <div class="panel" aria-label="Quick install steps">
-          <h2 style="margin-top:0;color:#0B3A67">Quick install</h2>
-          <ol style="margin:0;padding-left:1.1rem;">
-            <li>Download the installer.</li>
-            <li>Open the .exe and allow it to run if prompted by SmartScreen.</li>
-            <li>Follow the setup wizard and launch Audacity.</li>
-          </ol>
-          <div style="margin-top:.9rem; display:flex; gap:.6rem; flex-wrap:wrap;">
-            <a class="btn btn-primary js-download" href="https://release-assets.githubusercontent.com/github-production-release-asset/32921736/8c8d674e-b2ae-4b6e-8166-4ba3ebeef838?sp=r&sv=2018-11-09&sr=b&spr=https&se=2026-05-03T18%3A26%3A08Z&rscd=attachment%3B+filename%3Daudacity-win-3.7.7-64bit.exe">
-              <svg width="18" height="18" aria-hidden="true"><use href="#ic-download"/></svg>
-              <span>Get the 64‑bit installer</span>
-            </a>
-            <a class="btn btn-outline" href="/install-audacity-windows.html">Installation guide</a>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <section class="section container">
-    <div class="grid cols-3">
-      <div class="feature">
-        <svg width="22" height="22" aria-hidden="true"><use href="#ic-check"/></svg>
-        <div>
-          <h3 style="margin:.1rem 0 .2rem; color:var(--navy);">Powerful editing</h3>
-          <p style="margin:0;color:var(--muted)">Multi-track editing, fades, noise reduction, spectral view, and clip fixing tools.</p>
-        </div>
-      </div>
-      <div class="feature">
-        <svg width="22" height="22" aria-hidden="true"><use href="#ic-windows"/></svg>
-        <div>
-          <h3 style="margin:.1rem 0 .2rem; color:var(--navy);">Windows WASAPI loopback</h3>
-          <p style="margin:0;color:var(--muted)">Capture system audio (what‑you‑hear) using WASAPI. Also supports MME and DirectSound.</p>
-        </div>
-      </div>
-      <div class="feature">
-        <svg width="22" height="22" aria-hidden="true"><use href="#ic-info"/></svg>
-        <div>
-          <h3 style="margin:.1rem 0 .2rem; color:var(--navy);">VST3/LV2 effects</h3>
-          <p style="margin:0;color:var(--muted)">Extend with VST3, LV2, LADSPA, and Nyquist plugins; import extra formats via FFmpeg.</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <section class="section container" id="requirements">
-    <div class="grid cols-2">
-      <div class="panel">
-        <h2>System requirements</h2>
-        <ul style="margin:0 0 0 1rem;">
-          <li>Windows 10 or 11 (64‑bit)</li>
-          <li>4 GB RAM (8 GB recommended for large sessions)</li>
-          <li>200 MB free disk space for install; extra space for projects</li>
-          <li>Optional: FFmpeg for extended formats</li>
-        </ul>
-      </div>
-      <div class="panel">
-        <h2>Install tips</h2>
-        <ul style="margin:0 0 0 1rem;">
-          <li>If SmartScreen appears, choose More info → Run anyway.</li>
-          <li>Allow microphone access in Windows Settings → Privacy & Security.</li>
-          <li>Use <span class="kbd">WASAPI</span> host and <span class="kbd">loopback</span> device to record system audio.</li>
-        </ul>
-      </div>
-    </div>
-  </section>
-
-  <section class="section container faq" aria-label="Frequently asked questions">
-    <h2>Quick answers</h2>
-    <details>
-      <summary>Is Audacity free and safe on Windows?</summary>
-      <p>Yes. Audacity is free and open source. The 64‑bit Windows build is safe to install. Always download from a trusted link.</p>
-    </details>
-    <details>
-      <summary>Which Windows versions are supported?</summary>
-      <p>Current releases target Windows 10 and 11 (64‑bit). Older systems may require legacy builds.</p>
-    </details>
-    <details>
-      <summary>How do I record system audio?</summary>
-      <p>In Audacity, set the host to <strong>WASAPI</strong> and pick a <strong>loopback</strong> device to capture system audio (what‑you‑hear).</p>
-    </details>
-  </section>
-
-  <section class="section container" aria-label="Call to action">
-    <div class="panel" style="display:flex; align-items:center; justify-content:space-between; gap:1rem; flex-wrap:wrap;">
-      <div>
-        <h2 style="margin:.2rem 0;">Ready to edit audio on Windows?</h2>
-        <p style="margin:.2rem 0; color:var(--muted)">Download the 64‑bit installer and start recording in minutes.</p>
-      </div>
-      <a class="btn btn-contrast js-download" href="https://release-assets.githubusercontent.com/github-production-release-asset/32921736/8c8d674e-b2ae-4b6e-8166-4ba3ebeef838?sp=r&sv=2018-11-09&sr=b&spr=https&se=2026-05-03T18%3A26%3A08Z&rscd=attachment%3B+filename%3Daudacity-win-3.7.7-64bit.exe"><svg width="18" height="18" aria-hidden="true"><use href="#ic-download"/></svg> Download now</a>
-    </div>
-  </section>
-</main>
-
-<footer>
-  <div class="container" style="display:flex; align-items:flex-start; justify-content:space-between; gap:1rem; flex-wrap:wrap;">
-    <small>© <span id="year"></span> Audacity App (Unofficial Guide). This site is not affiliated with the Audacity Team. “Audacity” is a trademark of its respective owner.</small>
-    <small id="last-mod">Last updated: —</small>
-  </div>
-</footer>
-
-<div id="cookie-banner" class="cookie-banner" role="dialog" aria-labelledby="cookie-title" aria-describedby="cookie-desc" aria-live="polite">
-  <strong id="cookie-title" style="color:var(--navy)">We use cookies for analytics.</strong>
-  <p id="cookie-desc" style="margin:.35rem 0 0; color:var(--muted)">We use Google Analytics 4 to understand how our site is used. You can accept or decline. You can change your choice later by clearing site data.</p>
-  <div class="cookie-actions">
-    <button id="cookie-accept" class="btn btn-primary">Accept</button>
-    <button id="cookie-decline" class="btn btn-outline">Decline</button>
-    <button id="cookie-close" class="btn" aria-label="Close cookie banner" title="Close" style="margin-left:auto"><svg width="18" height="18" aria-hidden="true"><use href="#ic-close"/></svg> Close</button>
-  </div>
-</div>
-
-<script>
-  // --- Config ---
-  const GA_MEASUREMENT_ID = 'G-1J7BVS47GG';
-  const FILE_URL = 'https://release-assets.githubusercontent.com/github-production-release-asset/32921736/8c8d674e-b2ae-4b6e-8166-4ba3ebeef838?sp=r&sv=2018-11-09&sr=b&spr=https&se=2026-05-03T18%3A26%3A08Z&rscd=attachment%3B+filename%3Daudacity-win-3.7.7-64bit.exe';
-  const FILE_LABEL = 'audacity-win-3.7.7-64bit.exe';
-
-  // Update all direct download links to ensure consistency
-  document.addEventListener('DOMContentLoaded', () => {
-    document.querySelectorAll('.js-download').forEach(a => a.setAttribute('href', FILE_URL));
-  });
-
-  // Last modified + year
-  (function(){
-    const lm = new Date(document.lastModified);
-    const fmtr = new Intl.DateTimeFormat(undefined, {year:'numeric', month:'short', day:'2-digit', hour:'2-digit', minute:'2-digit'});
-    document.getElementById('last-mod').textContent = 'Last updated: ' + fmtr.format(lm);
-    document.getElementById('year').textContent = new Date().getFullYear();
-  })();
-
-  // Cookie consent logic
-  const banner = document.getElementById('cookie-banner');
-  const acceptBtn = document.getElementById('cookie-accept');
-  const declineBtn = document.getElementById('cookie-decline');
-  const closeBtn = document.getElementById('cookie-close');
-
-  function showBanner(){ banner.style.display = 'block'; }
-  function hideBanner(){ banner.style.display = 'none'; }
-
-  function loadGA(){
-    if (window.__gaLoaded) return;
-    window.__gaLoaded = true;
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){ dataLayer.push(arguments); }
-    window.gtag = window.gtag || gtag;
-    gtag('js', new Date());
-    gtag('config', GA_MEASUREMENT_ID, { anonymize_ip: true });
-
-    const s = document.createElement('script');
-    s.async = true;
-    s.src = 'https://www.googletagmanager.com/gtag/js?id=' + encodeURIComponent(GA_MEASUREMENT_ID);
-    document.head.appendChild(s);
-  }
-
-  // Initialize consent state
-  (function(){
-    const saved = localStorage.getItem('cookie_consent');
-    if (saved === 'granted') {
-      loadGA();
-    } else if (saved === 'denied') {
-      // Keep GA disabled
-    } else {
-      showBanner();
-    }
-  })();
-
-  acceptBtn.addEventListener('click', () => {
-    localStorage.setItem('cookie_consent', 'granted');
-    loadGA();
-    hideBanner();
-  });
-  declineBtn.addEventListener('click', () => {
-    localStorage.setItem('cookie_consent', 'denied');
-    hideBanner();
-  });
-  closeBtn.addEventListener('click', hideBanner);
-
-  // Download click tracking for all direct buttons
-  function trackDownload(url){
-    try {
-      if (window.gtag) {
-        window.gtag('event', 'file_download', {
-          event_category: 'downloads',
-          event_label: FILE_LABEL,
-          file_url: url
-        });
-      }
-    } catch (e) { /* noop */ }
-  }
-  document.addEventListener('click', (e) => {
-    const a = e.target.closest && e.target.closest('a.js-download');
-    if (a) {
-      trackDownload(a.href);
-    }
-  });
-  document.addEventListener('keydown', (e) => {
-    if ((e.key === 'Enter' || e.key === ' ') && document.activeElement && document.activeElement.matches('a.js-download')) {
-      trackDownload(document.activeElement.href);
-    }
-  });
-</script>
-
-</body>
-</html>
+<!doctype html><html lang="en"><head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Download Audacity for Windows 10/11 — Free Official Installer 2026</title>
+<meta name="description" content="Download Audacity 3.7.3 for Windows 10 and 11. Free, open source, 64-bit installer. WASAPI setup guide, plugins and troubleshooting.">
+<meta name="robots" content="index,follow">
+<link rel="canonical" href="https://audacity-app.github.io/">
+<meta name="last-modified" content="2026-06-10">
+<meta property="og:title" content="Download Audacity for Windows 10/11 — Free Official Installer 2026">
+<meta property="og:description" content="Download Audacity 3.7.3 for Windows 10 and 11. Free, open source, 64-bit installer. WASAPI setup guide, plugins and troubleshooting.">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://audacity-app.github.io/">
+<meta property="og:image" content="https://audacity-app.github.io/og-image.png">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="icon" href="/favicon.svg">
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="stylesheet" href="/style.css">
+</head><body>
+<nav class="site-nav"><div class="wrap"><div class="nav-inner"><a href="/index.html" class="nav-logo"><div class="nav-logo-mark">Au</div><span class="nav-logo-name">Audacity</span><span class="nav-logo-sub">for Windows</span></a><div class="nav-links"><a href="/index.html" id="nl-home">Download</a><a href="/install-audacity-windows.html" id="nl-install">Install</a><a href="/audacity-plugins-windows.html" id="nl-plugins">Plugins</a><a href="/audacity-windows-troubleshooting.html" id="nl-fix">Fix errors</a><a href="/audacity-windows-faq.html" id="nl-faq">FAQ</a></div><a href="/index.html" class="nav-cta"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg> Download</a></div></div></nav>
+<div class="page-hero"><div class="wrap">
+<nav class="breadcrumb"><a href="/index.html">home</a> <span>/</span> <span>home</span></nav>
+<span class="page-tag">Download</span>
+<h1>Download Audacity for Windows &mdash; <span>free official installer 2026</span></h1>
+<div class="answer-box">Audacity 3.7.3 is the latest stable release for Windows 10 and 11. It is <strong>free and open source</strong>. Download the official 64-bit installer below.</div><div class="hero-actions"><button class="btn-primary" type="button" data-captcha-trigger data-captcha-keyword="Audacity-Windows-Installer"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg> Download audacity-win-3.7.3.exe</button><a href="https://www.audacityteam.org/download/" class="btn-secondary" target="_blank" rel="noopener">Official audacityteam.org &rarr;</a></div><div class="captcha-note">A quick reCAPTCHA check will appear &mdash; complete it and the download starts automatically.</div><div class="trust-strip"><span class="trust-item">Windows 10 / 11</span><span class="trust-item">Free &amp; open source</span><span class="trust-item">64-bit</span><span class="trust-item">No ads, no spyware</span></div>
+</div></div>
+<div class="wrap"><div class="content-layout">
+<main><div class="callout callout-info"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg><span>This is an unofficial guide. The official Audacity site is <a href="https://www.audacityteam.org/" rel="noopener">audacityteam.org</a>.</span></div>
+<div class="section"><span class="section-label">Quick install</span><h2>Install Audacity on Windows in 3 steps</h2><ul class="steps">
+<li class="step"><div class="step-n">1</div><div><h3>Download the installer</h3><p>Click the download button above. The file is <code>audacity-win-3.7.3.exe</code>, about 35 MB.</p></div></li>
+<li class="step"><div class="step-n">2</div><div><h3>Run and follow the wizard</h3><p>Double-click the .exe. If Windows SmartScreen appears, click <strong>More info &rarr; Run anyway</strong>. Accept the licence and click Install.</p></div></li>
+<li class="step"><div class="step-n">3</div><div><h3>Set up your audio device</h3><p>Open Audacity &rarr; Edit &rarr; Preferences &rarr; Devices. Set Host to <strong>Windows WASAPI</strong> for best quality, or MME for compatibility.</p></div></li>
+</ul></div>
+<div class="section"><span class="section-label">All guides</span><h2>Audacity Windows guides</h2>
+<div class="tbl-wrap"><table><thead><tr><th>Guide</th><th>What it covers</th></tr></thead><tbody>
+<tr><td><a href="/install-audacity-windows.html"><strong>Install guide</strong></a></td><td>Full install walkthrough, SmartScreen, first launch</td></tr>
+<tr><td><a href="/audacity-system-requirements.html"><strong>System requirements</strong></a></td><td>Minimum and recommended specs</td></tr>
+<tr><td><a href="/audacity-windows-11.html"><strong>Windows 11</strong></a></td><td>Windows 11 specific setup</td></tr>
+<tr><td><a href="/audacity-wasapi-windows.html"><strong>WASAPI setup</strong></a></td><td>Best audio driver for recording</td></tr>
+<tr><td><a href="/audacity-asio-windows.html"><strong>ASIO setup</strong></a></td><td>Low-latency ASIO driver</td></tr>
+<tr><td><a href="/audacity-microphone-setup.html"><strong>Microphone setup</strong></a></td><td>Configure mic for recording</td></tr>
+<tr><td><a href="/audacity-latency-fix-windows.html"><strong>Fix latency</strong></a></td><td>Recording latency correction</td></tr>
+<tr><td><a href="/audacity-not-recording-windows.html"><strong>Not recording</strong></a></td><td>Fix recording failures</td></tr>
+<tr><td><a href="/audacity-plugins-windows.html"><strong>Plugins</strong></a></td><td>VST, LV2, LADSPA, FFmpeg</td></tr>
+<tr><td><a href="/audacity-vst3-windows.html"><strong>VST3 plugins</strong></a></td><td>VST3 specific setup</td></tr>
+<tr><td><a href="/audacity-noise-reduction-windows.html"><strong>Noise reduction</strong></a></td><td>Remove background noise</td></tr>
+<tr><td><a href="/audacity-mp3-export-windows.html"><strong>Export to MP3</strong></a></td><td>MP3 export with LAME</td></tr>
+<tr><td><a href="/vinyl-to-mp3-windows-audacity.html"><strong>Vinyl to MP3</strong></a></td><td>Digitise records and tapes</td></tr>
+<tr><td><a href="/audacity-update-windows.html"><strong>Update Audacity</strong></a></td><td>Update to latest version</td></tr>
+<tr><td><a href="/audacity-windows-troubleshooting.html"><strong>Troubleshooting</strong></a></td><td>All error fixes</td></tr>
+<tr><td><a href="/audacity-windows-features.html"><strong>Features</strong></a></td><td>What Audacity can do</td></tr>
+<tr><td><a href="/getting-started-audacity-windows.html"><strong>Getting started</strong></a></td><td>First recording guide</td></tr>
+<tr><td><a href="/audacity-vs-audition-windows.html"><strong>Audacity vs Audition</strong></a></td><td>Compare with Adobe Audition</td></tr>
+<tr><td><a href="/audacity-windows-faq.html"><strong>FAQ</strong></a></td><td>Common questions answered</td></tr>
+</tbody></table></div></div>
+<div class="section"><span class="section-label">FAQ</span><h2>Common questions</h2><div class="faq">
+<div class="faq-item"><details><summary>Is Audacity free?</summary><div class="faq-ans"><p>Yes. Audacity is completely free and open source software released under the GPL licence. There are no paid tiers, subscriptions or feature locks. The full application including all built-in effects and recording capabilities is free.</p></div></details></div>
+<div class="faq-item"><details><summary>What is the latest Audacity version for Windows?</summary><div class="faq-ans"><p>Audacity 3.7.3 is the current stable release for Windows as of mid-2026. Download it from the button above or from <a href="https://www.audacityteam.org/download/" rel="noopener">audacityteam.org</a>.</p></div></details></div>
+<div class="faq-item"><details><summary>Which audio host should I use in Audacity on Windows?</summary><div class="faq-ans"><p><strong>Windows WASAPI</strong> is recommended for most users &mdash; it provides higher quality recording and playback than MME. Use <strong>MME</strong> if WASAPI causes issues with your device. <strong>ASIO</strong> is for professional audio interfaces with dedicated drivers. See the <a href="/audacity-wasapi-windows.html">WASAPI guide</a>.</p></div></details></div>
+</div></div>
+<div class="cta-banner"><div><h2>Need help setting up audio?</h2><p>WASAPI setup guide for best recording quality.</p></div><a href="/audacity-wasapi-windows.html" class="btn-white"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>WASAPI guide</a></div>
+<div style="margin-bottom:24px"><span class="section-label">Related guides</span><div class="rel-grid"><a href="/install-audacity-windows.html" class="rel-card"><div class="rel-title">Install guide &rarr;</div><div class="rel-sub">full setup</div></a><a href="/audacity-wasapi-windows.html" class="rel-card"><div class="rel-title">WASAPI setup &rarr;</div><div class="rel-sub">audio driver</div></a><a href="/audacity-not-recording-windows.html" class="rel-card"><div class="rel-title">Not recording &rarr;</div><div class="rel-sub">fix issues</div></a></div></div></main>
+<aside class="content-sidebar"><div class="sb-ver"><div class="sb-ver-label">Latest version</div><div class="sb-ver-val">3.7.3</div><div class="sb-ver-sub">Windows 10 / 11 · Free</div></div><div class="sb-card"><div class="sb-card-title">Install</div><ul class="sb-links"><li><a href="/index.html" class="cur">Download Audacity</a></li><li><a href="/install-audacity-windows.html">Install guide</a></li><li><a href="/audacity-update-windows.html">Update Audacity</a></li><li><a href="/audacity-system-requirements.html">System requirements</a></li><li><a href="/audacity-windows-11.html">Windows 11</a></li></ul></div><div class="sb-card"><div class="sb-card-title">Audio setup</div><ul class="sb-links"><li><a href="/audacity-wasapi-windows.html">WASAPI setup</a></li><li><a href="/audacity-asio-windows.html">ASIO setup</a></li><li><a href="/audacity-microphone-setup.html">Microphone setup</a></li><li><a href="/audacity-latency-fix-windows.html">Fix latency</a></li><li><a href="/audacity-mp3-export-windows.html">Export to MP3</a></li><li><a href="/vinyl-to-mp3-windows-audacity.html">Vinyl to MP3</a></li></ul></div><div class="sb-card"><div class="sb-card-title">Plugins</div><ul class="sb-links"><li><a href="/audacity-plugins-windows.html">Plugins guide</a></li><li><a href="/audacity-vst3-windows.html">VST3 plugins</a></li></ul></div><div class="sb-card"><div class="sb-card-title">Fix & learn</div><ul class="sb-links"><li><a href="/audacity-windows-troubleshooting.html">Troubleshooting</a></li><li><a href="/audacity-not-recording-windows.html">Not recording</a></li><li><a href="/audacity-noise-reduction-windows.html">Noise reduction</a></li><li><a href="/getting-started-audacity-windows.html">Getting started</a></li><li><a href="/audacity-windows-features.html">Features</a></li><li><a href="/audacity-vs-audition-windows.html">Audacity vs Audition</a></li><li><a href="/audacity-windows-faq.html">FAQ</a></li></ul></div></aside>
+</div></div>
+<footer class="site-footer"><div class="wrap"><div class="footer-inner"><div><div class="footer-logo"><div class="footer-logo-mark">Au</div><span class="footer-logo-name">Audacity for Windows</span></div><p class="footer-tagline">Unofficial Windows guide &mdash; not affiliated with the Audacity team.</p></div><div><div class="footer-col-title">Install</div><ul class="footer-links"><li><a href="/index.html">Download Audacity</a></li><li><a href="/install-audacity-windows.html">Install guide</a></li><li><a href="/audacity-update-windows.html">Update Audacity</a></li><li><a href="/audacity-system-requirements.html">System requirements</a></li><li><a href="/audacity-windows-11.html">Windows 11 guide</a></li></ul></div><div><div class="footer-col-title">Audio setup</div><ul class="footer-links"><li><a href="/audacity-wasapi-windows.html">WASAPI setup</a></li><li><a href="/audacity-asio-windows.html">ASIO setup</a></li><li><a href="/audacity-microphone-setup.html">Microphone setup</a></li><li><a href="/audacity-latency-fix-windows.html">Fix latency</a></li><li><a href="/audacity-mp3-export-windows.html">Export to MP3</a></li></ul></div><div><div class="footer-col-title">Fix & learn</div><ul class="footer-links"><li><a href="/audacity-windows-troubleshooting.html">Troubleshooting</a></li><li><a href="/audacity-not-recording-windows.html">Not recording</a></li><li><a href="/audacity-plugins-windows.html">Plugins</a></li><li><a href="/audacity-vst3-windows.html">VST3 plugins</a></li><li><a href="/audacity-windows-faq.html">FAQ</a></li></ul></div></div><div class="footer-bottom"><p>Not affiliated with Audacity or the Audacity team. Unofficial community guide.</p></div></div></footer><div class="cookie-bar" id="cookieBar" style="display:none"><p>We use Google Analytics for anonymous traffic data. <a href="/audacity-windows-faq.html">Privacy</a></p><div class="cookie-btns"><button class="cookie-accept" id="cookieAccept">Accept</button><button class="cookie-decline" id="cookieDecline">Decline</button></div></div><script async src="https://www.googletagmanager.com/gtag/js?id=G-1J7BVS47GG"></script><script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag("consent","default",{analytics_storage:"denied",ad_storage:"denied"});gtag("js",new Date());gtag("config","G-1J7BVS47GG",{anonymize_ip:true,send_page_view:false});function grantGA(){gtag("consent","update",{analytics_storage:"granted"});gtag("event","page_view",{page_location:location.href,page_title:document.title})}document.addEventListener("DOMContentLoaded",function(){var bar=document.getElementById("cookieBar"),c=localStorage.getItem("aud_consent");if(!c){bar.style.display="flex"}else if(c==="1"){grantGA()}document.getElementById("cookieAccept").onclick=function(){localStorage.setItem("aud_consent","1");grantGA();bar.style.display="none"};document.getElementById("cookieDecline").onclick=function(){localStorage.setItem("aud_consent","0");bar.style.display="none"};});</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"SoftwareApplication","name":"Audacity","applicationCategory":"MultimediaApplication","operatingSystem":"Windows 10, Windows 11","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"},"isAccessibleForFree":true}</script>
+<script>var el=document.getElementById("nl-home");if(el)el.classList.add("active");</script>
+<script src="https://www.google.com/recaptcha/api.js" async defer></script>
+<script src="captcha-widget.min.js"></script>
+</body></html>
